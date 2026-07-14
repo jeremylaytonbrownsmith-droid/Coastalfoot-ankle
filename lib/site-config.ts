@@ -121,6 +121,11 @@ export interface SiteConfig {
     width: number;
     height: number;
   };
+  /** Home page hero photo, shown beside the headline on desktop and below it on mobile. */
+  heroImage: {
+    src: string;
+    alt: string;
+  };
   colors: BrandColors;
   contact: {
     /** Digits only, for tel: links. */

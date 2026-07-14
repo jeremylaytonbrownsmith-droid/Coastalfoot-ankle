@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getSiteConfig } from "@/lib/site-config";
 import { AppointmentButton, PhoneButton } from "@/components/Buttons";
 import TrustBar from "@/components/TrustBar";
@@ -8,23 +9,12 @@ import TeamPhoto from "@/components/TeamPhoto";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
 
-/** Soft, brand-colored shapes behind the hero — decoration only. */
+/** Soft, brand-colored glow behind the hero photo — decoration only. */
 function HeroBackdrop() {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
       <div className="absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-secondary-light opacity-70 blur-3xl" />
       <div className="absolute -bottom-48 right-24 h-96 w-96 rounded-full bg-primary opacity-[0.08] blur-3xl" />
-      <svg
-        viewBox="0 0 600 600"
-        className="absolute -right-16 top-1/2 hidden h-[30rem] w-[30rem] -translate-y-1/2 text-secondary opacity-25 lg:block"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={2}
-      >
-        <path d="M60 420 C 160 240, 420 200, 540 300" strokeWidth="3" strokeLinecap="round" />
-        <path d="M40 470 C 160 300, 440 260, 560 360" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
-        <path d="M90 370 C 180 200, 400 150, 520 240" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
-      </svg>
     </div>
   );
 }
@@ -38,10 +28,10 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-cream via-cream to-secondary-light">
+      <section className="relative overflow-hidden bg-gradient-to-br from-cream via-cream to-secondary-light">
         <HeroBackdrop />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
-          <div className="max-w-3xl">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:py-24">
+          <div>
             <p className="animate-fade-up text-lg font-semibold uppercase tracking-wide text-primary-darker">
               {config.practiceName}
             </p>
@@ -59,6 +49,19 @@ export default function HomePage() {
             <p className="animate-fade-up mt-5 text-lg text-muted [animation-delay:320ms]">
               {config.aiReceptionist.blurb}
             </p>
+          </div>
+
+          <div className="animate-fade-up relative [animation-delay:120ms]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
+              <Image
+                src={config.heroImage.src}
+                alt={config.heroImage.alt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>

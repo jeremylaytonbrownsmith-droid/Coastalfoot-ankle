@@ -63,7 +63,9 @@ export default function ProductCard({
           />
         </div>
       )}
-      <h3 className="mt-4 text-xl">{product.name}</h3>
+      {/* min-h keeps the price/description/button aligned across a row even
+          when one card's title wraps to a second line and another's doesn't. */}
+      <h3 className="mt-4 min-h-14 text-xl">{product.name}</h3>
       <p className="mt-1 text-2xl font-bold text-primary-darker">{product.price}</p>
       <p className="mt-2 grow text-muted">{product.description}</p>
       {product.purchaseMode === "buy" && product.buyUrl ? (

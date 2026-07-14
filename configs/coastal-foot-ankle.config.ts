@@ -28,6 +28,11 @@ const config: SiteConfig = {
     height: 203,
   },
 
+  heroImage: {
+    src: "/hero/cover-photo.png",
+    alt: "A bare foot in the sand next to a footprint drawn with sea glass and shells",
+  },
+
   /**
    * Brand palette — sampled from the actual logo photo.
    * Deliberately soft and spa-like (mauve + sage + warm gray).
