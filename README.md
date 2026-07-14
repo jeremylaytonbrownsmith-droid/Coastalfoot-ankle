@@ -3,8 +3,9 @@
 A production-ready podiatry practice website built with Next.js (App
 Router), Tailwind CSS, and TypeScript. Designed for patients over 60:
 large type (18px base), high contrast, big tap targets, shallow navigation,
-and a phone-first booking flow (the practice phone is answered during
-office hours by Halo, an AI receptionist).
+and multiple equal ways to reach the office — call, email, or request a
+callback (the practice phone is answered during office hours; Halo, an
+AI receptionist, is a planned future integration, not live today).
 
 **Everything brand-specific is config-driven.** One file —
 `configs/coastal-foot-ankle.config.ts` — controls the practice name, logo,
