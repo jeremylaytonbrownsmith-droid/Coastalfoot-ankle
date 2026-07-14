@@ -21,7 +21,7 @@ export default function PageHeader({
         <div className="absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-secondary opacity-25 blur-3xl" />
       </div>
       <div
-        className={`relative mx-auto max-w-4xl px-4 py-14 sm:px-6 ${align === "center" ? "text-center" : ""}`}
+        className={`relative mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-12 ${align === "center" ? "text-center" : ""}`}
       >
         {children}
       </div>
