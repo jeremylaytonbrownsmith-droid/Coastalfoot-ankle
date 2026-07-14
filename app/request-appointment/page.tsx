@@ -3,6 +3,7 @@ import { getSiteConfig } from "@/lib/site-config";
 import CallbackForm from "@/components/CallbackForm";
 import ServiceIcon from "@/components/ServiceIcon";
 import PageHeader from "@/components/PageHeader";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const config = getSiteConfig();
 
@@ -33,6 +34,7 @@ export default async function RequestAppointmentPage({
 
   return (
     <>
+      <ScrollToTop trigger={product} />
       {/* The phone IS the primary booking channel — it leads the page. */}
       <PageHeader align="center">
         <h1 className="text-4xl sm:text-5xl">
