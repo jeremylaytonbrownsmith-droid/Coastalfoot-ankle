@@ -48,49 +48,49 @@ export default async function RequestAppointmentPage({
         </p>
       </PageHeader>
 
-      <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6">
-        <div className="grid gap-6 sm:grid-cols-3">
-          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-7 text-center">
+      <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
+        <div className="grid gap-4 sm:grid-cols-3 sm:gap-6">
+          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-5 text-center sm:p-7">
             <span className="text-secondary">
-              <ServiceIcon name="phone" className="h-9 w-9" />
+              <ServiceIcon name="phone" className="h-7 w-7 sm:h-9 sm:w-9" />
             </span>
-            <h2 className="mt-4 text-2xl">Call</h2>
-            <p className="mt-2 grow text-lg text-muted">{config.aiReceptionist.blurb}</p>
+            <h2 className="mt-2 text-xl sm:mt-4 sm:text-2xl">Call</h2>
+            <p className="mt-1 text-base text-muted sm:mt-2 sm:grow sm:text-lg">{config.aiReceptionist.blurb}</p>
             <a
               href={`tel:${contact.phone}`}
-              className="mt-6 inline-flex min-h-[52px] w-full items-center justify-center rounded-lg bg-primary-dark px-6 text-lg font-semibold text-white no-underline transition-colors hover:bg-primary-darker"
+              className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center rounded-lg bg-primary-dark px-6 text-lg font-semibold text-white no-underline transition-colors hover:bg-primary-darker sm:mt-6"
             >
               {contact.phoneDisplay}
             </a>
           </div>
 
-          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-7 text-center">
+          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-5 text-center sm:p-7">
             <span className="text-secondary">
-              <ServiceIcon name="mail" className="h-9 w-9" />
+              <ServiceIcon name="mail" className="h-7 w-7 sm:h-9 sm:w-9" />
             </span>
-            <h2 className="mt-4 text-2xl">Email</h2>
-            <p className="mt-2 grow text-lg text-muted">
+            <h2 className="mt-2 text-xl sm:mt-4 sm:text-2xl">Email</h2>
+            <p className="mt-1 text-base text-muted sm:mt-2 sm:grow sm:text-lg">
               Send us a message any time and we&apos;ll reply within one business day.
             </p>
             <a
               href={`mailto:${contact.email}`}
-              className="mt-6 inline-flex min-h-[52px] w-full items-center justify-center rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light"
+              className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light sm:mt-6"
             >
               {contact.email}
             </a>
           </div>
 
-          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-7 text-center">
+          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-5 text-center sm:p-7">
             <span className="text-secondary">
-              <ServiceIcon name="form" className="h-9 w-9" />
+              <ServiceIcon name="form" className="h-7 w-7 sm:h-9 sm:w-9" />
             </span>
-            <h2 className="mt-4 text-2xl">Request a Callback</h2>
-            <p className="mt-2 grow text-lg text-muted">
+            <h2 className="mt-2 text-xl sm:mt-4 sm:text-2xl">Request a Callback</h2>
+            <p className="mt-1 text-base text-muted sm:mt-2 sm:grow sm:text-lg">
               Fill out a short form and our team will call you back within one business day.
             </p>
             <a
               href="#callback-form"
-              className="mt-6 inline-flex min-h-[52px] w-full items-center justify-center rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light"
+              className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light sm:mt-6"
             >
               Fill Out the Form
             </a>
