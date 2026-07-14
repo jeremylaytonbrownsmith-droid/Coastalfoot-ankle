@@ -13,6 +13,7 @@ import {
   MapPin,
   Clock,
   Check,
+  ClipboardList,
   type LucideIcon,
 } from "lucide-react";
 
@@ -43,6 +44,7 @@ const icons: Record<string, LucideIcon> = {
   map: MapPin,
   clock: Clock,
   check: Check,
+  form: ClipboardList,
 };
 
 export default function ServiceIcon({

@@ -30,36 +30,76 @@ export default async function RequestAppointmentPage({
 }: {
   searchParams: Promise<{ product?: string }>;
 }) {
-  const { contact, aiReceptionist } = config;
+  const { contact } = config;
   const { product } = await searchParams;
 
   return (
     <>
       <ScrollToTop trigger={product} />
-      {/* The phone IS the primary booking channel — it leads the page. */}
+      {/* Three equal, parallel contact options — no channel is framed as the fallback. */}
       <PageHeader align="center">
         <h1 className="text-4xl sm:text-5xl">
           {product ? `Ask about ${product}` : "Request an appointment"}
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-xl text-muted">
           {product
-            ? "Have a question about this product? Call us during office hours, or fill out the form below and we'll follow up with details."
-            : `The fastest way to book is to call. ${aiReceptionist.blurb}`}
-        </p>
-        <a
-          href={`tel:${contact.phone}`}
-          className="mt-8 inline-flex min-h-[72px] items-center gap-3 rounded-xl bg-primary-dark px-10 py-4 text-2xl font-bold text-white no-underline transition-colors hover:bg-primary-darker sm:text-3xl"
-        >
-          <ServiceIcon name="phone" className="h-9 w-9" />
-          {contact.phoneDisplay}
-        </a>
-        <p className="mt-4 text-lg text-muted">
-          Tap to call from your phone during office hours.
+            ? "Have a question about this product? Reach us however's easiest — call, email, or fill out the form below."
+            : "Reach us however's easiest for you — call, email, or fill out a short form and we'll call you back."}
         </p>
       </PageHeader>
 
-      <section className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
-        <h2 className="text-3xl">Prefer we call you?</h2>
+      <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6">
+        <div className="grid gap-6 sm:grid-cols-3">
+          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-7 text-center">
+            <span className="text-secondary">
+              <ServiceIcon name="phone" className="h-9 w-9" />
+            </span>
+            <h2 className="mt-4 text-2xl">Call</h2>
+            <p className="mt-2 grow text-lg text-muted">{config.aiReceptionist.blurb}</p>
+            <a
+              href={`tel:${contact.phone}`}
+              className="mt-6 inline-flex min-h-[52px] w-full items-center justify-center rounded-lg bg-primary-dark px-6 text-lg font-semibold text-white no-underline transition-colors hover:bg-primary-darker"
+            >
+              {contact.phoneDisplay}
+            </a>
+          </div>
+
+          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-7 text-center">
+            <span className="text-secondary">
+              <ServiceIcon name="mail" className="h-9 w-9" />
+            </span>
+            <h2 className="mt-4 text-2xl">Email</h2>
+            <p className="mt-2 grow text-lg text-muted">
+              Send us a message any time and we&apos;ll reply within one business day.
+            </p>
+            <a
+              href={`mailto:${contact.email}`}
+              className="mt-6 inline-flex min-h-[52px] w-full items-center justify-center rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light"
+            >
+              {contact.email}
+            </a>
+          </div>
+
+          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-7 text-center">
+            <span className="text-secondary">
+              <ServiceIcon name="form" className="h-9 w-9" />
+            </span>
+            <h2 className="mt-4 text-2xl">Request a Callback</h2>
+            <p className="mt-2 grow text-lg text-muted">
+              Fill out a short form and our team will call you back within one business day.
+            </p>
+            <a
+              href="#callback-form"
+              className="mt-6 inline-flex min-h-[52px] w-full items-center justify-center rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light"
+            >
+              Fill Out the Form
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="callback-form" className="mx-auto max-w-3xl scroll-mt-36 px-4 py-14 sm:px-6">
+        <h2 className="text-3xl">Request a callback</h2>
         <p className="mt-3 text-xl text-muted">
           {product
             ? "Fill out this short form and our team will call you back within one business day with details on this product."
