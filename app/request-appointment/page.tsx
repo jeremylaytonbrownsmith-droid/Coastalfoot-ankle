@@ -79,15 +79,16 @@ export default async function RequestAppointmentPage({
             <div>
               <p className="text-xl font-semibold">New patient?</p>
               <p className="mt-1 text-lg text-muted">
-                Fill out your paperwork ahead of time and save a few minutes at check-in.
+                Fill it out online ahead of time — no printing or scanning needed — and save a few minutes at check-in.
               </p>
             </div>
             <a
-              href={config.newPatientForm.src}
-              download
+              href={config.newPatientForm.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex min-h-[52px] shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light"
             >
-              Download {config.newPatientForm.label}
+              Fill Out {config.newPatientForm.label}
             </a>
           </div>
         )}

@@ -190,11 +190,12 @@ export interface SiteConfig {
     note: string;
   };
   /**
-   * Downloadable new-patient intake form (PDF) so patients can fill it out
-   * before arriving. Set to null to hide the download link if the practice
-   * doesn't have one yet.
+   * New-patient intake form so patients can fill it out before arriving.
+   * `url` points at an online fillable form (e.g. a JotForm) rather than a
+   * static PDF — easier for an older patient base than print-fill-scan.
+   * Set to null to hide the link if the practice doesn't have one yet.
    */
-  newPatientForm: { src: string; label: string } | null;
+  newPatientForm: { url: string; label: string } | null;
   seo: {
     /** Production URL, no trailing slash. Used for sitemap + Open Graph. */
     siteUrl: string;

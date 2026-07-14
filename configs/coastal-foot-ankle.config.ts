@@ -501,8 +501,8 @@ const config: SiteConfig = {
   },
 
   newPatientForm: {
-    src: "/forms/new-patient-registration.pdf",
-    label: "New Patient Registration Form (PDF)",
+    url: "https://form.jotform.com/261945236243054",
+    label: "New Patient Registration Form",
   },
 
   seo: {
