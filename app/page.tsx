@@ -9,12 +9,29 @@ import TeamPhoto from "@/components/TeamPhoto";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
 
-/** Soft, brand-colored glow behind the hero photo — decoration only. */
+/** Soft, brand-colored glow behind the hero text — decoration only. */
 function HeroBackdrop() {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-secondary-light opacity-70 blur-3xl" />
-      <div className="absolute -bottom-48 right-24 h-96 w-96 rounded-full bg-primary opacity-[0.08] blur-3xl" />
+      <div className="absolute -left-32 -top-40 h-[28rem] w-[28rem] rounded-full bg-secondary-light opacity-60 blur-3xl" />
+    </div>
+  );
+}
+
+/**
+ * Full-bleed hero photo panel (desktop only) — reaches the actual browser
+ * edge, not just the content container, which is what makes a split hero
+ * read as premium rather than a floating card. A soft gradient fades the
+ * photo's left edge into the page background so the seam feels intentional
+ * even where it passes near/behind the headline text.
+ */
+function HeroPhotoPanel({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[52%] lg:block">
+      <div className="relative h-full w-full">
+        <Image src={src} alt={alt} fill priority sizes="52vw" className="object-cover" />
+        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-cream to-transparent" />
+      </div>
     </div>
   );
 }
@@ -30,8 +47,9 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-cream via-cream to-secondary-light">
         <HeroBackdrop />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:py-24">
-          <div>
+        <HeroPhotoPanel src={config.heroImage.src} alt={config.heroImage.alt} />
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+          <div className="lg:max-w-xl">
             <p className="animate-fade-up text-lg font-semibold uppercase tracking-wide text-primary-darker">
               {config.practiceName}
             </p>
@@ -51,14 +69,15 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="animate-fade-up relative [animation-delay:120ms]">
+          {/* Contained card version for mobile/tablet, where a full-bleed
+              panel doesn't read as cleanly on a narrow screen. */}
+          <div className="animate-fade-up relative mt-10 [animation-delay:120ms] lg:hidden">
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
               <Image
                 src={config.heroImage.src}
                 alt={config.heroImage.alt}
                 fill
-                priority
-                sizes="(min-width: 1024px) 45vw, 90vw"
+                sizes="90vw"
                 className="object-cover"
               />
             </div>
