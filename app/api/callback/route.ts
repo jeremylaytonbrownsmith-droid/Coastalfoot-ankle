@@ -40,6 +40,9 @@ export async function POST(request: Request) {
     preferredTime: (body.preferredTime ?? "").toString().slice(0, 50),
     reason: (body.reason ?? "").toString().slice(0, 100),
     patientType: (body.patientType ?? "").toString().slice(0, 50),
+    // Set when this came from a store product's "Ask About This" link
+    // rather than the general appointment form.
+    productContext: (body.productContext ?? "").toString().trim().slice(0, 200),
   };
 
   /*
@@ -64,18 +67,24 @@ export async function POST(request: Request) {
 
   if (apiKey && staffEmail) {
     const text = [
-      `New callback request from the ${config.practiceName} website:`,
+      `New ${details.productContext ? "product question" : "callback request"} from the ${config.practiceName} website:`,
       "",
       `Name: ${details.name}`,
       `Phone: ${details.phone}`,
       `Email: ${details.email || "(not provided)"}`,
       `Best day to call: ${details.preferredDay}`,
       `Best time: ${details.preferredTime}`,
-      `Reason for visit: ${details.reason}`,
+      details.productContext
+        ? `Asking about: ${details.productContext}`
+        : `Reason for visit: ${details.reason}`,
       `Patient type: ${details.patientType}`,
       "",
       "Please call this patient back within one business day.",
     ].join("\n");
+
+    const subject = details.productContext
+      ? `Product question: ${details.name} — ${details.productContext}`
+      : `Callback request: ${details.name} (${details.reason})`;
 
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -86,7 +95,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         from: process.env.NOTIFICATION_FROM_EMAIL ?? "onboarding@resend.dev",
         to: [staffEmail],
-        subject: `Callback request: ${details.name} (${details.reason})`,
+        subject,
         text,
       }),
     });

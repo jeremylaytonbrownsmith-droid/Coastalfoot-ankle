@@ -79,7 +79,7 @@ export default function ProductCard({
         </a>
       ) : (
         <Link
-          href="/request-appointment"
+          href={`/request-appointment?product=${encodeURIComponent(product.name)}`}
           className="mt-5 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light"
         >
           Ask About This

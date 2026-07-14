@@ -16,10 +16,15 @@ export default function CallbackForm({
   reasonsForVisit,
   confirmationMessage,
   hipaaNote,
+  productContext,
 }: {
   reasonsForVisit: string[];
   confirmationMessage: string;
   hipaaNote: string;
+  /** Set when arriving from a store product's "Ask About This" link — the
+   * reason-for-visit question is redundant then, so it's replaced with a
+   * confirmation of which product this is about (also sent to staff). */
+  productContext?: string;
 }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [preferredTime, setPreferredTime] = useState<"morning" | "afternoon">("morning");
@@ -33,7 +38,7 @@ export default function CallbackForm({
       const res = await fetch("/api/callback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, preferredTime }),
+        body: JSON.stringify({ ...data, preferredTime, productContext }),
       });
       if (!res.ok) throw new Error(`Request failed: ${res.status}`);
       setStatus("sent");
@@ -114,16 +119,24 @@ export default function CallbackForm({
         </fieldset>
       </div>
 
-      <div>
-        <label htmlFor="reason" className={labelClasses}>
-          Reason for your visit
-        </label>
-        <select id="reason" name="reason" className={inputClasses} defaultValue={reasonsForVisit[0]}>
-          {reasonsForVisit.map((reason) => (
-            <option key={reason}>{reason}</option>
-          ))}
-        </select>
-      </div>
+      {productContext ? (
+        <div className="rounded-lg border-2 border-secondary-light bg-secondary-light/40 px-4 py-3">
+          <p className="text-lg">
+            <span className="font-semibold">Asking about:</span> {productContext}
+          </p>
+        </div>
+      ) : (
+        <div>
+          <label htmlFor="reason" className={labelClasses}>
+            Reason for your visit
+          </label>
+          <select id="reason" name="reason" className={inputClasses} defaultValue={reasonsForVisit[0]}>
+            {reasonsForVisit.map((reason) => (
+              <option key={reason}>{reason}</option>
+            ))}
+          </select>
+        </div>
+      )}
 
       <fieldset>
         <legend className={labelClasses}>Have you visited us before?</legend>
@@ -159,7 +172,7 @@ export default function CallbackForm({
         disabled={status === "sending"}
         className="w-full rounded-lg bg-primary-dark px-8 py-4 text-xl font-semibold text-white transition-colors hover:bg-primary-darker disabled:opacity-60 sm:w-auto"
       >
-        {status === "sending" ? "Sending…" : "Request My Callback"}
+        {status === "sending" ? "Sending…" : productContext ? "Ask My Question" : "Request My Callback"}
       </button>
     </form>
   );
