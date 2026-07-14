@@ -43,21 +43,23 @@ export default function TestimonialsPage() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-xl bg-secondary-light px-6 py-10 text-center">
-          <h2 className="text-3xl">Had a good visit?</h2>
-          <p className="mx-auto mt-3 max-w-xl text-xl text-muted">
-            Reviews from patients like you help your neighbors find good foot care.
-            It only takes a minute.
-          </p>
-          <a
-            href={googleReviews.reviewUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex min-h-[52px] items-center justify-center rounded-lg bg-primary-dark px-8 py-3 text-lg font-semibold text-white no-underline transition-colors hover:bg-primary-darker"
-          >
-            Leave us a review on Google
-          </a>
-        </div>
+        {googleReviews.reviewUrl && (
+          <div className="mt-12 rounded-xl bg-secondary-light px-6 py-10 text-center">
+            <h2 className="text-3xl">Had a good visit?</h2>
+            <p className="mx-auto mt-3 max-w-xl text-xl text-muted">
+              Reviews from patients like you help your neighbors find good foot care.
+              It only takes a minute.
+            </p>
+            <a
+              href={googleReviews.reviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex min-h-[52px] items-center justify-center rounded-lg bg-primary-dark px-8 py-3 text-lg font-semibold text-white no-underline transition-colors hover:bg-primary-darker"
+            >
+              Leave us a review on Google
+            </a>
+          </div>
+        )}
       </section>
 
       <CTASection />

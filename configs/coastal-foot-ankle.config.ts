@@ -399,8 +399,10 @@ const config: SiteConfig = {
   googleReviews: {
     rating: 4.9,
     count: "150+", // [PLACEHOLDER]
-    // [PLACEHOLDER] — replace with the practice's real Google review link.
-    reviewUrl: "https://g.page/r/REPLACE_WITH_GOOGLE_REVIEW_LINK/review",
+    // [PLACEHOLDER] — set the practice's real Google review link. Left null
+    // on purpose: a fake link would 404 if clicked, so the button stays
+    // hidden until this is real.
+    reviewUrl: null,
   },
 
   /**

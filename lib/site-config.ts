@@ -171,8 +171,12 @@ export interface SiteConfig {
   googleReviews: {
     rating: number;
     count: string;
-    /** "Leave us a review" destination — the practice's Google review link. */
-    reviewUrl: string;
+    /**
+     * "Leave us a review" destination — the practice's Google review link.
+     * Leave null until the real link exists; the button on the reviews
+     * page only renders when this is set, so there's never a dead link.
+     */
+    reviewUrl: string | null;
   };
   products: Product[];
   callbackForm: {
