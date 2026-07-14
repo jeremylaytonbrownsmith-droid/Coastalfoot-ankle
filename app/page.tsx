@@ -8,6 +8,28 @@ import TestimonialCard from "@/components/TestimonialCard";
 import TeamPhoto from "@/components/TeamPhoto";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
+import Stars from "@/components/Stars";
+
+/**
+ * Floating rating card — the one piece of proof-of-trust every visitor
+ * sees before they've scrolled at all. Positioned to overlap the seam
+ * between the text column and the hero photo on desktop so it reads as a
+ * physical object sitting on top of the page, not another line of text.
+ */
+function HeroTrustBadge({ rating, count, years }: { rating: number; count: string; years: string }) {
+  return (
+    <div className="flex items-center gap-4 rounded-2xl border border-secondary-light bg-card px-5 py-4 shadow-xl shadow-black/10">
+      <div className="flex shrink-0 flex-col items-center gap-1 border-r border-secondary-light pr-4">
+        <span className="text-2xl font-bold leading-none text-primary-darker">{rating}</span>
+        <Stars rating={rating} className="h-4 w-4" />
+      </div>
+      <div>
+        <p className="text-base font-semibold leading-tight text-body">{count} five-star reviews</p>
+        <p className="text-sm leading-tight text-muted">{years}</p>
+      </div>
+    </div>
+  );
+}
 
 /** Soft, brand-colored glow behind the hero text — decoration only. */
 function HeroBackdrop() {
@@ -49,13 +71,14 @@ export default function HomePage() {
         <HeroBackdrop />
         <HeroPhotoPanel src={config.heroImage.src} alt={config.heroImage.alt} />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
-          <div className="lg:max-w-xl">
-            <p className="animate-fade-up text-lg font-semibold uppercase tracking-wide text-primary-darker">
+          <div className="relative lg:max-w-xl">
+            <span className="animate-fade-up inline-flex items-center rounded-full border border-secondary bg-card/80 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide text-primary-darker shadow-sm">
               {config.practiceName}
-            </p>
-            <h1 className="animate-fade-up mt-3 text-4xl [animation-delay:80ms] sm:text-5xl lg:text-[3.4rem]">
+            </span>
+            <h1 className="animate-fade-up mt-4 text-4xl [animation-delay:80ms] sm:text-5xl lg:text-[3.4rem]">
               Expert foot &amp; ankle care in {config.contact.city}, {config.contact.state}
             </h1>
+            <span aria-hidden="true" className="animate-fade-up mt-4 block h-1.5 w-20 rounded-full bg-secondary [animation-delay:120ms]" />
             <p className="animate-fade-up mt-6 text-xl text-muted [animation-delay:160ms] sm:text-2xl">
               {config.tagline}. From everyday foot pain to diabetic foot care and
               red light therapy, our doctors take the time to listen — and to help.
@@ -67,6 +90,13 @@ export default function HomePage() {
             <p className="animate-fade-up mt-5 text-lg text-muted [animation-delay:320ms]">
               {config.aiReceptionist.blurb}
             </p>
+            <div className="animate-fade-up mt-8 inline-block [animation-delay:400ms] lg:absolute lg:-right-6 lg:top-full lg:z-10 lg:mt-5 lg:translate-x-1/2">
+              <HeroTrustBadge
+                rating={config.googleReviews.rating}
+                count={config.googleReviews.count}
+                years={config.trust.yearsExperience}
+              />
+            </div>
           </div>
 
           {/* Contained card version for mobile/tablet, where a full-bleed
