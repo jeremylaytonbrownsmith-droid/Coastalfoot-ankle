@@ -136,7 +136,7 @@ export default async function FeaturedServicePage({
 
       <CTASection
         heading={`Ready to try ${page.title.toLowerCase()}?`}
-        subtext="Call us any time or request a callback — we'll answer your questions and find a time that suits you."
+        subtext="Call us during office hours or request a callback — we'll answer your questions and find a time that suits you."
       />
     </>
   );

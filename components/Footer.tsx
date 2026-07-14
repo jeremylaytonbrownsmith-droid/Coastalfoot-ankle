@@ -18,13 +18,12 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2 className="text-xl font-bold">Reach us any time</h2>
+          <h2 className="text-xl font-bold">Get in touch</h2>
           <p className="mt-3">
             <a href={`tel:${contact.phone}`} className="text-2xl font-bold text-primary-darker no-underline hover:underline">
               {contact.phoneDisplay}
             </a>
           </p>
-          <p className="mt-1 text-muted">Answered 24 hours a day, 7 days a week.</p>
           <p className="mt-3">
             <a href={`mailto:${contact.email}`} className="text-lg text-primary-darker underline underline-offset-4">
               {contact.email}

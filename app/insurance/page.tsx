@@ -8,7 +8,7 @@ const config = getSiteConfig();
 
 export const metadata: Metadata = {
   title: "Insurance & Accepted Plans",
-  description: `Insurance plans accepted at ${config.practiceName}. Not sure if yours is covered? Call any time and we'll check for you.`,
+  description: `Insurance plans accepted at ${config.practiceName}. Not sure if yours is covered? Call and we'll check for you.`,
 };
 
 export default function InsurancePage() {
@@ -43,7 +43,7 @@ export default function InsurancePage() {
 
       <CTASection
         heading="Not sure about your coverage?"
-        subtext="Call us any time and we'll check your plan before your visit — no surprises."
+        subtext="Call us during office hours and we'll check your plan before your visit — no surprises."
       />
     </>
   );

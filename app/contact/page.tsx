@@ -9,7 +9,7 @@ const config = getSiteConfig();
 
 export const metadata: Metadata = {
   title: "Contact & Location",
-  description: `Contact ${config.practiceName} — serving ${config.contact.serviceArea}. Phone answered 24/7.`,
+  description: `Contact ${config.practiceName} — serving ${config.contact.serviceArea}.`,
 };
 
 /**
@@ -47,7 +47,7 @@ export default function ContactPage() {
         <h1 className="text-4xl sm:text-5xl">Contact us</h1>
         <p className="mt-5 max-w-2xl text-xl text-muted">
           Serving {contact.serviceArea}. The easiest way to reach us is by
-          phone — we answer around the clock.
+          phone during office hours.
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <PhoneButton />

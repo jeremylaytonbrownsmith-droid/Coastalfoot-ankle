@@ -4,7 +4,7 @@ import Stars from "@/components/Stars";
 
 /**
  * Reusable end-of-page call to action. The phone number and the form get
- * equal visual weight — calling is the always-open booking path.
+ * equal visual weight — calling is the primary booking path.
  */
 export default function CTASection({
   heading,

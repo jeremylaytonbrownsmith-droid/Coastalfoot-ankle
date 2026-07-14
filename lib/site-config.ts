@@ -150,7 +150,7 @@ export interface SiteConfig {
     serviceArea: string;
     hours: { days: string; hours: string }[];
   };
-  /** The AI receptionist that answers the practice phone 24/7. */
+  /** The AI receptionist that answers the practice phone during office hours. */
   aiReceptionist: {
     name: string;
     /** One-line explanation shown near the phone number. */

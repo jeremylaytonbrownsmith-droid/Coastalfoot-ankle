@@ -6,7 +6,8 @@ import ServiceIcon from "@/components/ServiceIcon";
  * Shared CTA buttons. Everything is sized for older hands: minimum 52px
  * tall, large text, obvious color. The phone button is never styled as
  * less important than the form button — calling is the primary booking
- * path (the phone is answered 24/7 by the practice's AI receptionist).
+ * path (the phone is answered during office hours by the practice's AI
+ * receptionist).
  */
 
 const base =

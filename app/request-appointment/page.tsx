@@ -17,11 +17,11 @@ export async function generateMetadata({
   return product
     ? {
         title: `Ask about ${product}`,
-        description: `Have a question about ${product} from ${config.practiceName}? Call any time or request a callback.`,
+        description: `Have a question about ${product} from ${config.practiceName}? Call during office hours or request a callback.`,
       }
     : {
         title: "Request an Appointment",
-        description: `Call ${config.practiceName} any time — our phone is answered 24/7 — or request a callback and we'll reach out within one business day.`,
+        description: `Call ${config.practiceName} during office hours, or request a callback and we'll reach out within one business day.`,
       };
 }
 
@@ -43,7 +43,7 @@ export default async function RequestAppointmentPage({
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-xl text-muted">
           {product
-            ? "Have a question about this product? Call us any time, or fill out the form below and we'll follow up with details."
+            ? "Have a question about this product? Call us during office hours, or fill out the form below and we'll follow up with details."
             : `The fastest way to book is to call. ${aiReceptionist.blurb}`}
         </p>
         <a
@@ -54,7 +54,7 @@ export default async function RequestAppointmentPage({
           {contact.phoneDisplay}
         </a>
         <p className="mt-4 text-lg text-muted">
-          Tap to call from your phone — day or night, weekends included.
+          Tap to call from your phone during office hours.
         </p>
       </PageHeader>
 

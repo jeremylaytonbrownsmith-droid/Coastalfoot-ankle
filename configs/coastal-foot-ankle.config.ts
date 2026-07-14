@@ -73,19 +73,19 @@ const config: SiteConfig = {
     hours: [
       { days: "Monday – Thursday", hours: "8:00 AM – 5:00 PM" },
       { days: "Friday", hours: "8:00 AM – 12:00 PM" },
-      { days: "Saturday – Sunday", hours: "Closed (phone answered 24/7)" },
+      { days: "Saturday – Sunday", hours: "Closed" },
     ],
   },
 
   aiReceptionist: {
     name: "Halo",
     blurb:
-      "Our phone is answered 24 hours a day, 7 days a week — even nights and weekends. Call any time and we can schedule your appointment on the spot.",
+      "Call during office hours and we can usually schedule your appointment on the spot.",
     faq: [
       {
         question: "Wait — am I talking to a robot?",
         answer:
-          "Sort of, but not like you might think. Halo is a friendly AI receptionist that answers our phone day and night. It talks and listens just like a person, and it can schedule your appointment right there on the call. If anything comes up that Halo can't handle, our staff follows up personally.",
+          "Sort of, but not like you might think. Halo is a friendly AI receptionist that answers our phone during office hours. It talks and listens just like a person, and it can schedule your appointment right there on the call. If anything comes up that Halo can't handle, our staff follows up personally.",
       },
       {
         question: "Can Halo actually book my appointment?",
@@ -510,7 +510,7 @@ const config: SiteConfig = {
     siteUrl: "https://www.coastalfootankle.com",
     defaultTitle: "Coastal Foot & Ankle Center | Podiatrist in Hardeeville, SC",
     defaultDescription:
-      "Caring, expert podiatry in Hardeeville, SC — serving Bluffton, Sun City, Okatie, and the Hilton Head area. Diabetic foot care, bunions, heel pain, and red light therapy. Call any time — our phone is answered 24/7.",
+      "Caring, expert podiatry in Hardeeville, SC — serving Bluffton, Sun City, Okatie, and the Hilton Head area. Diabetic foot care, bunions, heel pain, and red light therapy. Call to schedule your appointment today.",
   },
 };
 

@@ -56,7 +56,7 @@ export default function CallbackForm({
         </svg>
         <p className="mt-4 text-2xl font-semibold">{confirmationMessage}</p>
         <p className="mt-2 text-lg text-muted">
-          Prefer not to wait? Call us any time — our phone is always answered.
+          Prefer not to wait? Call us during office hours instead.
         </p>
       </div>
     );
@@ -163,7 +163,7 @@ export default function CallbackForm({
 
       {status === "error" && (
         <p role="alert" className="rounded-lg border-2 border-red-300 bg-red-50 px-4 py-3 text-lg text-red-800">
-          Something went wrong sending your request. Please try again, or simply give us a call — we answer 24/7.
+          Something went wrong sending your request. Please try again, or simply give us a call during office hours.
         </p>
       )}
 

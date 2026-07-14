@@ -40,12 +40,11 @@ export default function Header({
 
   return (
     <header className="sticky top-0 z-40 border-b border-secondary-light bg-card/95 shadow-sm backdrop-blur-sm">
-      {/* Slim reassurance bar — tells patients the phone is always answered */}
+      {/* Slim reassurance bar — real office hours live in the footer/contact page */}
       <div className="bg-primary-dark px-4 py-2 text-center text-white">
         <a href={`tel:${phone}`} className="text-base font-medium no-underline sm:text-lg">
-          Call any time, day or night:{" "}
+          Call us:{" "}
           <span className="font-bold underline underline-offset-4">{phoneDisplay}</span>
-          <span className="hidden sm:inline"> — answered 24/7</span>
         </a>
       </div>
 
