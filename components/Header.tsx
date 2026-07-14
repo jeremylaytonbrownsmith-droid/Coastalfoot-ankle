@@ -4,8 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import type { NavItem } from "@/lib/site-config";
+import { getSiteConfig, type NavItem } from "@/lib/site-config";
 import ServiceIcon from "@/components/ServiceIcon";
+import Stars from "@/components/Stars";
 
 /*
  * Header rules for a 60+ audience:
@@ -32,6 +33,7 @@ export default function Header({
 }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { contact, googleReviews, trust } = getSiteConfig();
 
   const linkClasses = (href: string) =>
     `whitespace-nowrap rounded-md px-3 py-2 text-lg font-medium no-underline transition-colors hover:bg-secondary-light hover:text-primary-darker ${
@@ -40,12 +42,29 @@ export default function Header({
 
   return (
     <header className="sticky top-0 z-40 border-b border-secondary-light bg-card/95 shadow-sm backdrop-blur-sm">
-      {/* Slim reassurance bar — real office hours live in the footer/contact page */}
-      <div className="bg-primary-dark px-4 py-2 text-center text-white">
-        <a href={`tel:${phone}`} className="text-base font-medium no-underline sm:text-lg">
-          Call us:{" "}
-          <span className="font-bold underline underline-offset-4">{phoneDisplay}</span>
-        </a>
+      {/* Utility bar: quick trust signal + every contact channel, not just the phone.
+          A gradient (instead of a flat fill) and a soft accent line underneath give
+          it real depth rather than reading as a single flat color block. */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-primary-darker via-primary-dark to-primary-darker px-4 py-2 text-white">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-6 gap-y-1 text-center">
+          <span className="hidden items-center gap-1.5 text-sm font-medium text-white/90 sm:inline-flex">
+            <Stars rating={googleReviews.rating} className="h-4 w-4" />
+            {googleReviews.rating} ({trust.googleReviewCount})
+          </span>
+          <a href={`tel:${contact.phone}`} className="inline-flex items-center gap-1.5 text-base font-medium no-underline sm:text-lg">
+            <ServiceIcon name="phone" className="hidden h-4 w-4 sm:inline" />
+            Call:{" "}
+            <span className="font-bold underline underline-offset-4">{phoneDisplay}</span>
+          </a>
+          <a
+            href={`mailto:${contact.email}`}
+            className="hidden items-center gap-1.5 text-sm font-medium text-white/90 no-underline underline-offset-4 hover:underline sm:inline-flex"
+          >
+            <ServiceIcon name="mail" className="h-4 w-4" />
+            {contact.email}
+          </a>
+        </div>
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-secondary-light/70 to-transparent" />
       </div>
 
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
