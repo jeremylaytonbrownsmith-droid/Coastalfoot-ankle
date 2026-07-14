@@ -75,8 +75,6 @@ const config: SiteConfig = {
       { days: "Friday", hours: "8:00 AM – 12:00 PM" },
       { days: "Saturday – Sunday", hours: "Closed (phone answered 24/7)" },
     ],
-    // City-level map center (Hardeeville, SC) — no pin while address is null.
-    mapCenter: { lat: 32.2871, lng: -81.0812, zoom: 12 },
   },
 
   aiReceptionist: {
@@ -204,14 +202,14 @@ const config: SiteConfig = {
       title: "Diabetic Foot Care",
       description:
         "Diabetes calls for regular, careful foot checks. We watch for small problems before they become big ones and help you keep your feet healthy for the long run.",
-      icon: "heart",
+      icon: "droplet",
       featuredOnHome: true,
     },
     {
       title: "Nail Concerns",
       description:
         "Thick, ingrown, or discolored nails are common — and very treatable. We handle nail problems gently and get you back on your feet comfortably.",
-      icon: "nail",
+      icon: "toenail",
       featuredOnHome: true,
     },
     {
@@ -224,13 +222,13 @@ const config: SiteConfig = {
       title: "Bunions & Hammertoes",
       description:
         "Sore, crooked, or rubbing toes don't have to be part of getting older. From better shoes to surgery when it's truly needed, we'll walk you through every option.",
-      icon: "foot",
+      icon: "toes",
     },
     {
       title: "Ankle Sprains & Injuries",
       description:
         "A twisted ankle deserves more than ice and hope. We check how bad it really is and get you healing the right way, the first time.",
-      icon: "check",
+      icon: "ankle",
     },
     {
       title: "Custom Orthotics",

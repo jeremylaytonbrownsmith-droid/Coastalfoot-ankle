@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { Product } from "@/lib/site-config";
 import ServiceIcon from "@/components/ServiceIcon";
 
@@ -12,16 +13,17 @@ import ServiceIcon from "@/components/ServiceIcon";
  *   1. set purchaseMode: "buy" and buyUrl on the product in the config
  *   2. done — the Buy button below opens that URL
  * No redesign or new components required.
+ *
+ * The non-"buy" CTA deliberately does NOT repeat the phone number — with
+ * four-plus cards on a page, that read as spammy. It links to the callback
+ * form instead; the phone number is already prominent in the header and
+ * the page-level CTA, so it doesn't need restating on every card.
  */
 export default function ProductCard({
   product,
-  phone,
-  phoneDisplay,
   logo,
 }: {
   product: Product;
-  phone?: string;
-  phoneDisplay?: string;
   /** Falls back to the practice logo (not a generic icon) when no product photo exists yet. */
   logo?: { src: string; alt: string };
 }) {
@@ -76,13 +78,12 @@ export default function ProductCard({
           Buy
         </a>
       ) : (
-        <a
-          href={`tel:${phone ?? ""}`}
+        <Link
+          href="/request-appointment"
           className="mt-5 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light"
         >
-          <ServiceIcon name="phone" className="h-5 w-5" />
-          Call to purchase{phoneDisplay ? ` · ${phoneDisplay}` : ""}
-        </a>
+          Ask About This
+        </Link>
       )}
     </article>
   );

@@ -3,6 +3,7 @@ import { getSiteConfig } from "@/lib/site-config";
 import TeamPhoto from "@/components/TeamPhoto";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
+import PageHeader from "@/components/PageHeader";
 import type { Doctor } from "@/lib/site-config";
 
 const config = getSiteConfig();
@@ -54,14 +55,12 @@ export default function TeamPage() {
 
   return (
     <>
-      <section className="bg-cream">
-        <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
-          <h1 className="text-4xl sm:text-5xl">Meet our team</h1>
-          <p className="mt-5 max-w-2xl text-xl text-muted">
-            Doctors and staff who take the time to know you — not just your chart.
-          </p>
-        </div>
-      </section>
+      <PageHeader>
+        <h1 className="text-4xl sm:text-5xl">Meet our team</h1>
+        <p className="mt-5 max-w-2xl text-xl text-muted">
+          Doctors and staff who take the time to know you — not just your chart.
+        </p>
+      </PageHeader>
 
       <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6">
         <h2 className="text-3xl">Our doctors</h2>

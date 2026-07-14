@@ -4,6 +4,7 @@ import TestimonialCard from "@/components/TestimonialCard";
 import Stars from "@/components/Stars";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
+import PageHeader from "@/components/PageHeader";
 
 const config = getSiteConfig();
 
@@ -17,16 +18,14 @@ export default function TestimonialsPage() {
 
   return (
     <>
-      <section className="bg-cream">
-        <div className="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6">
-          <h1 className="text-4xl sm:text-5xl">What our patients say</h1>
-          <div className="mt-6 inline-flex flex-col items-center gap-2 rounded-xl border border-secondary-light bg-card px-8 py-6 shadow-sm">
-            <Stars rating={googleReviews.rating} className="h-8 w-8" />
-            <p className="text-2xl font-bold">{googleReviews.rating} out of 5</p>
-            <p className="text-lg text-muted">Based on {googleReviews.count} Google reviews</p>
-          </div>
+      <PageHeader align="center">
+        <h1 className="text-4xl sm:text-5xl">What our patients say</h1>
+        <div className="mt-6 inline-flex flex-col items-center gap-2 rounded-xl border border-secondary-light bg-card px-8 py-6 shadow-sm">
+          <Stars rating={googleReviews.rating} className="h-8 w-8" />
+          <p className="text-2xl font-bold">{googleReviews.rating} out of 5</p>
+          <p className="text-lg text-muted">Based on {googleReviews.count} Google reviews</p>
         </div>
-      </section>
+      </PageHeader>
 
       {/*
         Google Reviews section. These snippets come from the config for now;

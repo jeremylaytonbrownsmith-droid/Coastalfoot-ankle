@@ -149,8 +149,6 @@ export interface SiteConfig {
     state: string;
     serviceArea: string;
     hours: { days: string; hours: string }[];
-    /** City-center coordinates for the no-pin area map. */
-    mapCenter: { lat: number; lng: number; zoom: number };
   };
   /** The AI receptionist that answers the practice phone 24/7. */
   aiReceptionist: {

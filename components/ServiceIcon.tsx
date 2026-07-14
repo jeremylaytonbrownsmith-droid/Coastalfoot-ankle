@@ -84,6 +84,34 @@ const paths: Record<string, React.ReactNode> = {
   check: (
     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
   ),
+  droplet: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 3c-3 4-6 8.5-6 12a6 6 0 0012 0c0-3.5-3-8-6-12z"
+    />
+  ),
+  toenail: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 3.2c2.2 0 3.8 2 3.8 4.8 0 1.4-.4 2.2-.4 3.6 0 3.6-1.3 6.7-3.4 6.7s-3.4-3.1-3.4-6.7c0-1.4-.4-2.2-.4-3.6 0-2.8 1.6-4.8 3.8-4.8zM8.7 8h6.6"
+    />
+  ),
+  toes: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3.5 14.5c0-2.2 1-3.5 2-3.5s2 1.3 2 3.5-1 3.5-2 3.5-2-1.3-2-3.5zM8.7 13.5c0-2.2 1-3.8 2-3.8s2 1.6 2 3.8-1 3.5-2 3.5-2-1.3-2-3.5zM13.9 13.7c0-2 1-3.5 2-3.5s2 1.5 2 3.5-1 3.3-2 3.3-2-1.3-2-3.3zM19 14.5c0-1.8.9-3 1.8-3s1.8 1.2 1.8 3-.9 3-1.8 3-1.8-1.2-1.8-3z"
+    />
+  ),
+  ankle: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M10 2v6.5c0 1.3-.5 1.9-1.4 2.9-1.5 1.7-2.6 3.5-2.6 5.6 0 2.2 1.8 4 4 4h6c1.7 0 3-1.3 3-3 0-1.5-1-2.2-2-3-1.3-1-2-2-2-4V2M8.5 13.5h7"
+    />
+  ),
 };
 
 export default function ServiceIcon({

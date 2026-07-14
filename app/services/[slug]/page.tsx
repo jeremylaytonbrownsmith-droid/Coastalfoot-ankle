@@ -6,6 +6,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ServiceIcon from "@/components/ServiceIcon";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
+import PageHeader from "@/components/PageHeader";
 
 /**
  * Dedicated service pages (Red Light Therapy, Red Light Bed, …) are fully
@@ -40,16 +41,14 @@ export default async function FeaturedServicePage({
 
   return (
     <>
-      <section className="bg-cream">
-        <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
-          <h1 className="text-4xl sm:text-5xl">{page.title}</h1>
-          <p className="mt-5 max-w-2xl text-2xl text-muted">{page.heroTagline}</p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <AppointmentButton label={`Book ${page.title}`} />
-            <PhoneButton variant="outline" />
-          </div>
+      <PageHeader>
+        <h1 className="text-4xl sm:text-5xl">{page.title}</h1>
+        <p className="mt-5 max-w-2xl text-2xl text-muted">{page.heroTagline}</p>
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <AppointmentButton label={`Book ${page.title}`} />
+          <PhoneButton variant="outline" />
         </div>
-      </section>
+      </PageHeader>
 
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-14 sm:px-6">
         <Reveal>

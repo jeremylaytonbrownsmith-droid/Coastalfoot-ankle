@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getSiteConfig } from "@/lib/site-config";
 import ServiceIcon from "@/components/ServiceIcon";
 import { AppointmentButton, PhoneButton } from "@/components/Buttons";
+import PageHeader from "@/components/PageHeader";
 
 const config = getSiteConfig();
 
@@ -11,28 +12,27 @@ export const metadata: Metadata = {
 };
 
 /**
+ * A real Google Maps embed (the keyless "share > embed a map" query format
+ * — no API key or billing setup required, appropriate for this phase).
  * The street address stays hidden until contact.address is set in the
- * config. While it's null, this page shows city + service area and a
- * city-level map with no pin; filling in the address automatically enables
- * the address block and a pinned map. (OpenStreetMap embed — no API key.)
+ * config: while it's null, this searches just "city, state" so the map
+ * shows the general area without a precise pin; filling in the address
+ * automatically searches the full address instead, which drops a pin.
  */
 function AreaMap() {
-  const { address, mapCenter, city, state } = config.contact;
-  const delta = 0.5 / Math.pow(2, mapCenter.zoom - 8);
-  const bbox = [
-    mapCenter.lng - delta,
-    mapCenter.lat - delta / 2,
-    mapCenter.lng + delta,
-    mapCenter.lat + delta / 2,
-  ].join("%2C");
-  const marker = address ? `&marker=${mapCenter.lat}%2C${mapCenter.lng}` : "";
+  const { address, city, state } = config.contact;
+  const query = address
+    ? `${address.street}, ${address.city}, ${address.state} ${address.zip}`
+    : `${city}, ${state}`;
+  const zoom = address ? 15 : 11;
 
   return (
     <iframe
-      title={`Map of the ${city}, ${state} area`}
-      src={`https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik${marker}`}
+      title={address ? `Map of ${config.practiceName}` : `Map of the ${city}, ${state} area`}
+      src={`https://www.google.com/maps?q=${encodeURIComponent(query)}&z=${zoom}&output=embed`}
       className="h-[400px] w-full rounded-xl border border-secondary-light"
       loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
     />
   );
 }
@@ -42,19 +42,17 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="bg-cream">
-        <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
-          <h1 className="text-4xl sm:text-5xl">Contact us</h1>
-          <p className="mt-5 max-w-2xl text-xl text-muted">
-            Serving {contact.serviceArea}. The easiest way to reach us is by
-            phone — we answer around the clock.
-          </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <PhoneButton />
-            <AppointmentButton label="Request a Callback" />
-          </div>
+      <PageHeader>
+        <h1 className="text-4xl sm:text-5xl">Contact us</h1>
+        <p className="mt-5 max-w-2xl text-xl text-muted">
+          Serving {contact.serviceArea}. The easiest way to reach us is by
+          phone — we answer around the clock.
+        </p>
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <PhoneButton />
+          <AppointmentButton label="Request a Callback" />
         </div>
-      </section>
+      </PageHeader>
 
       <section className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2">
         <div className="space-y-8">

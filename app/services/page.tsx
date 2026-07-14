@@ -3,6 +3,7 @@ import { getSiteConfig } from "@/lib/site-config";
 import ServiceCard from "@/components/ServiceCard";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
+import PageHeader from "@/components/PageHeader";
 
 const config = getSiteConfig();
 
@@ -14,15 +15,13 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-cream">
-        <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
-          <h1 className="text-4xl sm:text-5xl">Our services</h1>
-          <p className="mt-5 max-w-2xl text-xl text-muted">
-            Plain-language care, no medical jargon. If you don&apos;t see what you
-            need here, call us — chances are we can help.
-          </p>
-        </div>
-      </section>
+      <PageHeader>
+        <h1 className="text-4xl sm:text-5xl">Our services</h1>
+        <p className="mt-5 max-w-2xl text-xl text-muted">
+          Plain-language care, no medical jargon. If you don&apos;t see what you
+          need here, call us — chances are we can help.
+        </p>
+      </PageHeader>
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

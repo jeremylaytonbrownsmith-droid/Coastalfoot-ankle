@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getSiteConfig } from "@/lib/site-config";
 import CallbackForm from "@/components/CallbackForm";
 import ServiceIcon from "@/components/ServiceIcon";
+import PageHeader from "@/components/PageHeader";
 
 const config = getSiteConfig();
 
@@ -16,24 +17,22 @@ export default function RequestAppointmentPage() {
   return (
     <>
       {/* The phone IS the primary booking channel — it leads the page. */}
-      <section className="bg-cream">
-        <div className="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6">
-          <h1 className="text-4xl sm:text-5xl">Request an appointment</h1>
-          <p className="mx-auto mt-5 max-w-2xl text-xl text-muted">
-            The fastest way to book is to call. {aiReceptionist.blurb}
-          </p>
-          <a
-            href={`tel:${contact.phone}`}
-            className="mt-8 inline-flex min-h-[72px] items-center gap-3 rounded-xl bg-primary-dark px-10 py-4 text-2xl font-bold text-white no-underline transition-colors hover:bg-primary-darker sm:text-3xl"
-          >
-            <ServiceIcon name="phone" className="h-9 w-9" />
-            {contact.phoneDisplay}
-          </a>
-          <p className="mt-4 text-lg text-muted">
-            Tap to call from your phone — day or night, weekends included.
-          </p>
-        </div>
-      </section>
+      <PageHeader align="center">
+        <h1 className="text-4xl sm:text-5xl">Request an appointment</h1>
+        <p className="mx-auto mt-5 max-w-2xl text-xl text-muted">
+          The fastest way to book is to call. {aiReceptionist.blurb}
+        </p>
+        <a
+          href={`tel:${contact.phone}`}
+          className="mt-8 inline-flex min-h-[72px] items-center gap-3 rounded-xl bg-primary-dark px-10 py-4 text-2xl font-bold text-white no-underline transition-colors hover:bg-primary-darker sm:text-3xl"
+        >
+          <ServiceIcon name="phone" className="h-9 w-9" />
+          {contact.phoneDisplay}
+        </a>
+        <p className="mt-4 text-lg text-muted">
+          Tap to call from your phone — day or night, weekends included.
+        </p>
+      </PageHeader>
 
       <section className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
         <h2 className="text-3xl">Prefer we call you?</h2>
