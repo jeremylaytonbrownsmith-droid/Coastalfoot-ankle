@@ -50,9 +50,14 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {config.practiceName}. All rights reserved.
           </p>
-          <Link href="/privacy" className="underline underline-offset-4 hover:text-primary-darker">
-            Privacy Policy
-          </Link>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link href="/insurance" className="underline underline-offset-4 hover:text-primary-darker">
+              Insurance &amp; Accepted Plans
+            </Link>
+            <Link href="/privacy" className="underline underline-offset-4 hover:text-primary-darker">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

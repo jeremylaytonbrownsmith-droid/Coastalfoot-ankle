@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getSiteConfig } from "@/lib/site-config";
 import ServiceIcon from "@/components/ServiceIcon";
 import { AppointmentButton, PhoneButton } from "@/components/Buttons";
@@ -120,6 +121,13 @@ export default function ContactPage() {
               </ul>
             </div>
           </div>
+
+          <p className="text-lg text-muted">
+            Wondering if we accept your insurance?{" "}
+            <Link href="/insurance" className="font-semibold text-primary-darker underline underline-offset-4">
+              See accepted plans →
+            </Link>
+          </p>
         </div>
 
         <div>

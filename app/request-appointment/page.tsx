@@ -4,6 +4,7 @@ import CallbackForm from "@/components/CallbackForm";
 import ServiceIcon from "@/components/ServiceIcon";
 import PageHeader from "@/components/PageHeader";
 import ScrollToTop from "@/components/ScrollToTop";
+import FAQAccordion from "@/components/FAQAccordion";
 
 const config = getSiteConfig();
 
@@ -71,6 +72,36 @@ export default async function RequestAppointmentPage({
             hipaaNote={config.callbackForm.hipaaNote}
             productContext={product}
           />
+        </div>
+
+        {config.newPatientForm && (
+          <div className="mt-10 flex flex-col items-start gap-3 rounded-xl border-2 border-secondary-light bg-cream px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xl font-semibold">New patient?</p>
+              <p className="mt-1 text-lg text-muted">
+                Fill out your paperwork ahead of time and save a few minutes at check-in.
+              </p>
+            </div>
+            <a
+              href={config.newPatientForm.src}
+              download
+              className="inline-flex min-h-[52px] shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light"
+            >
+              Download {config.newPatientForm.label}
+            </a>
+          </div>
+        )}
+      </section>
+
+      <section className="bg-cream">
+        <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+          <h2 className="text-3xl">Wondering about {config.aiReceptionist.name}?</h2>
+          <p className="mt-3 text-xl text-muted">
+            Our phone is answered by a friendly AI receptionist — here&apos;s what to expect.
+          </p>
+          <div className="mt-8">
+            <FAQAccordion items={config.aiReceptionist.faq} />
+          </div>
         </div>
       </section>
     </>

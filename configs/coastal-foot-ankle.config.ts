@@ -81,6 +81,28 @@ const config: SiteConfig = {
     name: "Halo",
     blurb:
       "Our phone is answered 24 hours a day, 7 days a week — even nights and weekends. Call any time and we can schedule your appointment on the spot.",
+    faq: [
+      {
+        question: "Wait — am I talking to a robot?",
+        answer:
+          "Sort of, but not like you might think. Halo is a friendly AI receptionist that answers our phone day and night. It talks and listens just like a person, and it can schedule your appointment right there on the call. If anything comes up that Halo can't handle, our staff follows up personally.",
+      },
+      {
+        question: "Can Halo actually book my appointment?",
+        answer:
+          "Yes. Halo can find a time that works and get you on the schedule during the same call — no waiting for a callback if you don't want to.",
+      },
+      {
+        question: "What if I'd rather talk to a real person?",
+        answer:
+          "That's always fine. Just let Halo know, or call during regular office hours and our front desk team will help you directly.",
+      },
+      {
+        question: "Is it safe to share my information with Halo?",
+        answer:
+          "Yes. Halo only collects what's needed to schedule your visit — your name, phone number, and reason for the call. Please save any detailed medical information for your actual appointment.",
+      },
+    ],
   },
 
   // Numbers shown in the trust bar on the home page. [PLACEHOLDERS]
@@ -459,6 +481,28 @@ const config: SiteConfig = {
       "Thanks — our team will call you back within one business day to confirm.",
     hipaaNote:
       "Please don't include detailed medical information in this form. We'll talk through everything on the phone.",
+  },
+
+  // [PLACEHOLDER LIST] — confirm the practice's real accepted plans before launch.
+  insurance: {
+    intro:
+      "We're in-network with most major insurance plans. Not sure if yours is accepted? Call us — we're happy to check for you before your visit.",
+    acceptedPlans: [
+      "Medicare",
+      "Blue Cross Blue Shield of South Carolina",
+      "Aetna",
+      "Cigna",
+      "UnitedHealthcare",
+      "Humana",
+      "TRICARE",
+    ],
+    note:
+      "Don't see your plan listed? Many plans we accept aren't shown here yet — call us and we'll confirm your coverage before your appointment.",
+  },
+
+  newPatientForm: {
+    src: "/forms/new-patient-registration.pdf",
+    label: "New Patient Registration Form (PDF)",
   },
 
   seo: {

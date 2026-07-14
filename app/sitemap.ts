@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/store",
     "/testimonials",
     "/contact",
+    "/insurance",
     "/privacy",
   ];
 

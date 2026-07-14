@@ -155,6 +155,8 @@ export interface SiteConfig {
     name: string;
     /** One-line explanation shown near the phone number. */
     blurb: string;
+    /** Short FAQ addressing "wait, am I talking to a robot?" — shown on the Request Appointment page. */
+    faq: FaqItem[];
   };
   trust: {
     yearsExperience: string;
@@ -182,6 +184,17 @@ export interface SiteConfig {
     confirmationMessage: string;
     hipaaNote: string;
   };
+  insurance: {
+    intro: string;
+    acceptedPlans: string[];
+    note: string;
+  };
+  /**
+   * Downloadable new-patient intake form (PDF) so patients can fill it out
+   * before arriving. Set to null to hide the download link if the practice
+   * doesn't have one yet.
+   */
+  newPatientForm: { src: string; label: string } | null;
   seo: {
     /** Production URL, no trailing slash. Used for sitemap + Open Graph. */
     siteUrl: string;
