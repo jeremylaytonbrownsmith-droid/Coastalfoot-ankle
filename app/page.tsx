@@ -8,27 +8,7 @@ import TestimonialCard from "@/components/TestimonialCard";
 import TeamPhoto from "@/components/TeamPhoto";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
-import Stars from "@/components/Stars";
-
-/**
- * Rating card — the one piece of proof-of-trust every visitor sees before
- * they've scrolled at all. A slight tilt and a real shadow make it read as
- * a physical object sitting on top of the page, not another line of text.
- */
-function HeroTrustBadge({ rating, count, years }: { rating: number; count: string; years: string }) {
-  return (
-    <div className="flex -rotate-2 items-center gap-4 rounded-2xl border border-secondary-light bg-card px-5 py-4 shadow-xl shadow-black/15">
-      <div className="flex shrink-0 flex-col items-center gap-1 border-r border-secondary-light pr-4">
-        <span className="text-2xl font-bold leading-none text-primary-darker">{rating}</span>
-        <Stars rating={rating} className="h-4 w-4" />
-      </div>
-      <div>
-        <p className="text-base font-semibold leading-tight text-body">{count} five-star reviews</p>
-        <p className="text-sm leading-tight text-muted">{years}</p>
-      </div>
-    </div>
-  );
-}
+import ServiceIcon from "@/components/ServiceIcon";
 
 /** Layered brand-colored glow behind the hero text — decoration only. */
 function HeroBackdrop() {
@@ -76,9 +56,13 @@ export default function HomePage() {
               {config.practiceName}
             </span>
             <h1 className="animate-fade-up mt-4 text-4xl [animation-delay:80ms] sm:text-5xl lg:text-[3.4rem]">
-              Expert foot &amp; ankle care in {config.contact.city}, {config.contact.state}
+              Expert foot &amp; ankle care
             </h1>
-            <span aria-hidden="true" className="animate-fade-up mt-4 block h-1.5 w-20 rounded-full bg-secondary [animation-delay:120ms]" />
+            <p className="animate-fade-up mt-3 flex items-start gap-2 text-xl font-bold text-primary-darker [animation-delay:120ms] sm:text-2xl">
+              <ServiceIcon name="map" className="mt-1 h-5 w-5 shrink-0 sm:mt-1.5" />
+              Serving {config.contact.serviceArea}
+            </p>
+            <span aria-hidden="true" className="animate-fade-up mt-5 block h-1.5 w-20 rounded-full bg-secondary [animation-delay:140ms]" />
             <p className="animate-fade-up mt-6 text-xl text-muted [animation-delay:160ms] sm:text-2xl">
               {config.tagline}. From everyday foot pain to diabetic foot care and
               red light therapy, our doctors take the time to listen — and to help.
@@ -86,13 +70,6 @@ export default function HomePage() {
             <div className="animate-fade-up mt-9 flex flex-col gap-4 [animation-delay:240ms] sm:flex-row">
               <AppointmentButton />
               <PhoneButton variant="outline" />
-            </div>
-            <div className="animate-fade-up mt-10 inline-block [animation-delay:320ms]">
-              <HeroTrustBadge
-                rating={config.googleReviews.rating}
-                count={config.googleReviews.count}
-                years={config.trust.yearsExperience}
-              />
             </div>
           </div>
 
