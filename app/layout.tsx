@@ -1,10 +1,32 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Inter } from "next/font/google";
 import { getSiteConfig } from "@/lib/site-config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
 const config = getSiteConfig();
+
+/**
+ * Self-hosted via next/font (zero runtime request to Google, no layout
+ * shift). Playfair Display carries the "premium medical" heading feel the
+ * brand wants; Inter is chosen specifically for legibility at large sizes,
+ * which matters for the 60+ patient audience. Bold-only weights avoid the
+ * thin-font readability issue the original brief called out.
+ */
+const heading = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const body = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.seo.siteUrl),
@@ -63,7 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const cssVars = `:root{--site-primary:${colors.primary};--site-primary-dark:${colors.primaryDark};--site-primary-darker:${colors.primaryDarker};--site-secondary:${colors.secondary};--site-secondary-light:${colors.secondaryLight};--site-text:${colors.text};--site-text-muted:${colors.textMuted};--site-cream:${colors.cream};--site-white:${colors.white};}`;
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${heading.variable} ${body.variable}`}>
       <head>
         <style dangerouslySetInnerHTML={{ __html: cssVars }} />
         <noscript>

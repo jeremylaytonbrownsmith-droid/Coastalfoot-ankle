@@ -34,7 +34,7 @@ export default function Header({
   const pathname = usePathname();
 
   const linkClasses = (href: string) =>
-    `rounded-md px-3 py-2 text-lg font-medium no-underline transition-colors hover:bg-secondary-light hover:text-primary-darker ${
+    `whitespace-nowrap rounded-md px-3 py-2 text-lg font-medium no-underline transition-colors hover:bg-secondary-light hover:text-primary-darker ${
       pathname === href ? "text-primary-darker underline decoration-secondary decoration-2 underline-offset-8" : "text-body"
     }`;
 

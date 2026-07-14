@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import type { Product } from "@/lib/site-config";
 import ServiceIcon from "@/components/ServiceIcon";
 
@@ -41,14 +42,17 @@ export default function ProductCard({
           <ServiceIcon name="foot" className="h-16 w-16" />
         </div>
       ) : (
-        // eslint-disable-next-line @next/next/no-img-element -- graceful fallback for photos not yet provided
-        <img
-          ref={imgRef}
-          src={product.photo}
-          alt={product.name}
-          onError={() => setImageFailed(true)}
-          className="aspect-square w-full rounded-lg object-cover"
-        />
+        <div className="relative aspect-square w-full overflow-hidden rounded-lg">
+          <Image
+            ref={imgRef}
+            src={product.photo}
+            alt={product.name}
+            fill
+            sizes="(min-width: 1024px) 25vw, 45vw"
+            onError={() => setImageFailed(true)}
+            className="object-cover"
+          />
+        </div>
       )}
       <h3 className="mt-4 text-xl">{product.name}</h3>
       <p className="mt-1 text-2xl font-bold text-primary-darker">{product.price}</p>

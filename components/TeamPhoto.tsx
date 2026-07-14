@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 /**
  * Team headshot with a graceful fallback: if the photo file hasn't been
  * added to /public/team yet, an initials avatar in brand colors renders
  * instead. Drop the real photo at the configured path and it appears —
- * no code change needed. All photos crop to the same square ratio so
- * real headshots and placeholders sit side by side cleanly.
+ * no code change needed. Uses next/image for automatic AVIF/WebP
+ * conversion and responsive sizing on photos that do exist.
  */
 export default function TeamPhoto({ src, name }: { src: string; name: string }) {
   const [failed, setFailed] = useState(false);
@@ -40,13 +41,16 @@ export default function TeamPhoto({ src, name }: { src: string; name: string }) 
   }
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element -- needs onError fallback for not-yet-provided headshots
-    <img
-      ref={imgRef}
-      src={src}
-      alt={`Portrait of ${name}`}
-      onError={() => setFailed(true)}
-      className="aspect-square w-full rounded-xl object-cover object-top"
-    />
+    <div className="relative aspect-square w-full overflow-hidden rounded-xl">
+      <Image
+        ref={imgRef}
+        src={src}
+        alt={`Portrait of ${name}`}
+        fill
+        sizes="(min-width: 1024px) 220px, 45vw"
+        onError={() => setFailed(true)}
+        className="object-cover object-top"
+      />
+    </div>
   );
 }
