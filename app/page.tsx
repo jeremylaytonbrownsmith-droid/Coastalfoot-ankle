@@ -50,6 +50,15 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-cream via-cream to-secondary-light">
         <HeroBackdrop />
         <HeroPhotoPanel src={config.heroImage.src} alt={config.heroImage.alt} />
+
+        {/* Full-bleed photo band for mobile/tablet — edge to edge like the
+            desktop panel, with a bottom fade instead of a left one, so it
+            reads as part of the page rather than a separate floating card. */}
+        <div className="relative h-64 w-full sm:h-80 lg:hidden">
+          <Image src={config.heroImage.src} alt={config.heroImage.alt} fill priority sizes="100vw" className="object-cover" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-cream to-transparent" />
+        </div>
+
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
           <div className="relative lg:max-w-xl">
             <span className="animate-fade-up inline-flex items-center rounded-md bg-primary-dark px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-white">
@@ -70,20 +79,6 @@ export default function HomePage() {
             <div className="animate-fade-up mt-9 flex flex-col gap-4 [animation-delay:240ms] sm:flex-row">
               <AppointmentButton />
               <PhoneButton variant="outline" />
-            </div>
-          </div>
-
-          {/* Contained card version for mobile/tablet, where a full-bleed
-              panel doesn't read as cleanly on a narrow screen. */}
-          <div className="animate-fade-up relative mt-10 [animation-delay:120ms] lg:hidden">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
-              <Image
-                src={config.heroImage.src}
-                alt={config.heroImage.alt}
-                fill
-                sizes="90vw"
-                className="object-cover"
-              />
             </div>
           </div>
         </div>
