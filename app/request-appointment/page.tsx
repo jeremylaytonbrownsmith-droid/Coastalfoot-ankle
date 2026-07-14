@@ -50,7 +50,7 @@ export default async function RequestAppointmentPage({
 
       <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
         <div className="grid gap-4 sm:grid-cols-3 sm:gap-6">
-          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-5 text-center sm:p-7">
+          <div className="flex min-w-0 flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-5 text-center sm:p-7">
             <span className="text-secondary">
               <ServiceIcon name="phone" className="h-7 w-7 sm:h-9 sm:w-9" />
             </span>
@@ -64,7 +64,7 @@ export default async function RequestAppointmentPage({
             </a>
           </div>
 
-          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-5 text-center sm:p-7">
+          <div className="flex min-w-0 flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-5 text-center sm:p-7">
             <span className="text-secondary">
               <ServiceIcon name="mail" className="h-7 w-7 sm:h-9 sm:w-9" />
             </span>
@@ -74,13 +74,13 @@ export default async function RequestAppointmentPage({
             </p>
             <a
               href={`mailto:${contact.email}`}
-              className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light sm:mt-6"
+              className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center break-all rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light sm:mt-6"
             >
               {contact.email}
             </a>
           </div>
 
-          <div className="flex flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-5 text-center sm:p-7">
+          <div className="flex min-w-0 flex-col items-center rounded-xl border-2 border-secondary-light bg-card p-5 text-center sm:p-7">
             <span className="text-secondary">
               <ServiceIcon name="form" className="h-7 w-7 sm:h-9 sm:w-9" />
             </span>
