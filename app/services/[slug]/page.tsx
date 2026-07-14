@@ -5,6 +5,7 @@ import { AppointmentButton, PhoneButton } from "@/components/Buttons";
 import FAQAccordion from "@/components/FAQAccordion";
 import ServiceIcon from "@/components/ServiceIcon";
 import CTASection from "@/components/CTASection";
+import Reveal from "@/components/Reveal";
 
 /**
  * Dedicated service pages (Red Light Therapy, Red Light Bed, …) are fully
@@ -51,6 +52,7 @@ export default async function FeaturedServicePage({
       </section>
 
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-14 sm:px-6">
+        <Reveal>
         <section aria-labelledby={`what-it-is-${page.slug}`}>
           <h2 id={`what-it-is-${page.slug}`} className="text-3xl">
             What it is
@@ -61,7 +63,9 @@ export default async function FeaturedServicePage({
             </p>
           ))}
         </section>
+        </Reveal>
 
+        <Reveal>
         <section aria-labelledby={`session-${page.slug}`}>
           <h2 id={`session-${page.slug}`} className="text-3xl">
             What a session is like
@@ -72,7 +76,9 @@ export default async function FeaturedServicePage({
             </p>
           ))}
         </section>
+        </Reveal>
 
+        <Reveal>
         <section aria-labelledby={`who-${page.slug}`}>
           <h2 id={`who-${page.slug}`} className="text-3xl">
             Who it helps
@@ -88,8 +94,10 @@ export default async function FeaturedServicePage({
             ))}
           </ul>
         </section>
+        </Reveal>
 
         {page.pricing && (
+          <Reveal>
           <section aria-labelledby={`pricing-${page.slug}`}>
             <h2 id={`pricing-${page.slug}`} className="text-3xl">
               Pricing
@@ -112,8 +120,10 @@ export default async function FeaturedServicePage({
               Questions about pricing or packages? Just call — we&apos;ll walk you through it.
             </p>
           </section>
+          </Reveal>
         )}
 
+        <Reveal>
         <section aria-labelledby={`faq-${page.slug}`}>
           <h2 id={`faq-${page.slug}`} className="text-3xl">
             Common questions
@@ -122,6 +132,7 @@ export default async function FeaturedServicePage({
             <FAQAccordion items={page.faq} />
           </div>
         </section>
+        </Reveal>
       </div>
 
       <CTASection

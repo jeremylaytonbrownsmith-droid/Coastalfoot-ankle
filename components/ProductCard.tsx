@@ -32,7 +32,7 @@ export default function ProductCard({
   }, []);
 
   return (
-    <article className="flex flex-col rounded-xl border border-secondary-light bg-card p-5 shadow-sm">
+    <article className="flex flex-col rounded-xl border border-secondary-light bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       {imageFailed ? (
         <div
           aria-hidden="true"

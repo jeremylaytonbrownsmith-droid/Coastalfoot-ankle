@@ -10,7 +10,7 @@ import ServiceIcon from "@/components/ServiceIcon";
  */
 
 const base =
-  "inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-lg px-7 py-3 text-lg font-semibold no-underline transition-colors";
+  "inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-lg px-7 py-3 text-lg font-semibold no-underline shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0";
 
 export function AppointmentButton({ label }: { label?: string }) {
   return (

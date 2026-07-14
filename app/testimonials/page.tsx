@@ -3,6 +3,7 @@ import { getSiteConfig } from "@/lib/site-config";
 import TestimonialCard from "@/components/TestimonialCard";
 import Stars from "@/components/Stars";
 import CTASection from "@/components/CTASection";
+import Reveal from "@/components/Reveal";
 
 const config = getSiteConfig();
 
@@ -35,8 +36,10 @@ export default function TestimonialsPage() {
       */}
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
         <div className="grid gap-6 md:grid-cols-2">
-          {config.testimonials.map((t) => (
-            <TestimonialCard key={t.name} testimonial={t} />
+          {config.testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={(i % 2) * 110} className="h-full">
+              <TestimonialCard testimonial={t} />
+            </Reveal>
           ))}
         </div>
 

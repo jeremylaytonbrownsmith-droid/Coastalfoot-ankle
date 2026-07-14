@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getSiteConfig } from "@/lib/site-config";
 import ServiceCard from "@/components/ServiceCard";
 import CTASection from "@/components/CTASection";
+import Reveal from "@/components/Reveal";
 
 const config = getSiteConfig();
 
@@ -25,8 +26,10 @@ export default function ServicesPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {config.services.map((service) => (
-            <ServiceCard key={service.title} service={service} />
+          {config.services.map((service, i) => (
+            <Reveal key={service.title} delay={(i % 3) * 90} className="h-full">
+              <ServiceCard service={service} />
+            </Reveal>
           ))}
         </div>
       </section>

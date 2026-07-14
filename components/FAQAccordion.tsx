@@ -9,7 +9,7 @@ export default function FAQAccordion({ items }: { items: FaqItem[] }) {
     <div className="divide-y divide-secondary-light rounded-xl border border-secondary-light bg-card">
       {items.map((item) => (
         <details key={item.question} className="group px-6">
-          <summary className="flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-4 py-4 text-xl font-semibold marker:hidden [&::-webkit-details-marker]:hidden">
+          <summary className="-mx-6 flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-xl font-semibold transition-colors marker:hidden hover:bg-cream [&::-webkit-details-marker]:hidden">
             {item.question}
             <svg
               viewBox="0 0 24 24"

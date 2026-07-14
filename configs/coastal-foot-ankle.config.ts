@@ -50,8 +50,8 @@ const config: SiteConfig = {
 
   contact: {
     // [PLACEHOLDER] — swap for the practice's real number.
-    phone: "9105550123",
-    phoneDisplay: "(910) 555-0123",
+    phone: "8435550123",
+    phoneDisplay: "(843) 555-0123",
     // [PLACEHOLDER] — swap for the practice's real email.
     email: "hello@coastalfootankle.com",
     /**
@@ -59,21 +59,20 @@ const config: SiteConfig = {
      * address may be published. Setting it automatically turns on the full
      * address block, map pin, and JSON-LD street address across the site:
      *
-     * address: { street: "123 Main St, Suite 4", city: "Wilmington", state: "NC", zip: "28401" },
+     * address: { street: "123 Main St, Suite 4", city: "Hardeeville", state: "SC", zip: "29927" },
      */
     address: null,
-    // [PLACEHOLDER CITY] — used in "Serving <city> and surrounding areas".
-    city: "Wilmington",
-    state: "NC",
-    serviceArea: "Wilmington and the surrounding coastal communities",
+    city: "Hardeeville",
+    state: "SC",
+    serviceArea:
+      "Hardeeville, Bluffton, Sun City, Okatie, and the greater Hilton Head area",
     hours: [
       { days: "Monday – Thursday", hours: "8:00 AM – 5:00 PM" },
       { days: "Friday", hours: "8:00 AM – 12:00 PM" },
       { days: "Saturday – Sunday", hours: "Closed (phone answered 24/7)" },
     ],
-    // City-level map center — no pin is shown while address is null.
-    // [PLACEHOLDER] — set to the practice's actual city center.
-    mapCenter: { lat: 34.2257, lng: -77.9447, zoom: 12 },
+    // City-level map center (Hardeeville, SC) — no pin while address is null.
+    mapCenter: { lat: 32.2871, lng: -81.0812, zoom: 12 },
   },
 
   aiReceptionist: {
@@ -110,11 +109,22 @@ const config: SiteConfig = {
     {
       name: "Dr. Lauren Thornberry",
       credentials: "DPM",
-      // Real headshot — drop the provided photo at public/team/lauren-thornberry.jpg
-      photo: "/team/lauren-thornberry.jpg",
-      bio: "Dr. Thornberry has cared for feet and ankles for more than 15 years. She believes good foot care starts with listening, and she takes the time to explain every option in plain language. Her patients know her for her warmth, her steady hands, and her honest advice.",
-      specialties: ["General podiatry", "Diabetic foot care", "Red light therapy"],
-      boardCertifications: ["Board Certified, ABFAS"],
+      // Real headshot — drop the photo at public/team/lauren-thornberry.webp
+      // (a copy lives in Dropbox at /Website Assets/lauren-thornberry.webp).
+      photo: "/team/lauren-thornberry.webp",
+      bio: "Dr. Thornberry is a retired United States Navy officer who followed her mom and dad into Navy service before dedicating her career to foot and ankle care. She earned her doctorate from the Kent State University College of Podiatric Medicine and completed her surgical residency at the Baltimore VA Medical Center, with rotations at Walter Reed and the Rubin Institute for Advanced Orthopedics. Known for always having a smile, she takes the time to listen, explain every option in plain language, and build a treatment plan that gets you back to the activities you love.",
+      specialties: [
+        "Bunions & hammertoes",
+        "Ankle sprains",
+        "Diabetic foot care",
+        "Plantar fasciitis & heel spurs",
+        "Custom orthotics & diabetic shoes",
+      ],
+      boardCertifications: [
+        "Board Certified, ABPM",
+        "Fellow, ACFAS",
+        "U.S. Navy Veteran",
+      ],
       role: "doctor",
     },
     {
@@ -198,10 +208,22 @@ const config: SiteConfig = {
       featuredOnHome: true,
     },
     {
-      title: "Heel Pain",
+      title: "Heel Pain & Plantar Fasciitis",
       description:
         "Heel pain that greets you first thing in the morning usually has a clear cause. We'll find yours and build a simple plan to ease it.",
       icon: "heel",
+    },
+    {
+      title: "Bunions & Hammertoes",
+      description:
+        "Sore, crooked, or rubbing toes don't have to be part of getting older. From better shoes to surgery when it's truly needed, we'll walk you through every option.",
+      icon: "foot",
+    },
+    {
+      title: "Ankle Sprains & Injuries",
+      description:
+        "A twisted ankle deserves more than ice and hope. We check how bad it really is and get you healing the right way, the first time.",
+      icon: "check",
     },
     {
       title: "Custom Orthotics",
@@ -430,9 +452,9 @@ const config: SiteConfig = {
   seo: {
     // [PLACEHOLDER] — set the real production domain before launch.
     siteUrl: "https://www.coastalfootankle.com",
-    defaultTitle: "Coastal Foot & Ankle Center | Podiatrists in Wilmington, NC",
+    defaultTitle: "Coastal Foot & Ankle Center | Podiatrist in Hardeeville, SC",
     defaultDescription:
-      "Caring, expert podiatry in Wilmington, NC. General foot care, diabetic foot care, nail concerns, and red light therapy. Call any time — our phone is answered 24/7.",
+      "Caring, expert podiatry in Hardeeville, SC — serving Bluffton, Sun City, Okatie, and the Hilton Head area. Diabetic foot care, bunions, heel pain, and red light therapy. Call any time — our phone is answered 24/7.",
   },
 };
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getSiteConfig } from "@/lib/site-config";
 import ProductCard from "@/components/ProductCard";
 import CTASection from "@/components/CTASection";
+import Reveal from "@/components/Reveal";
 
 const config = getSiteConfig();
 
@@ -26,13 +27,14 @@ export default function StorePage() {
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {config.products.map((product) => (
-            <ProductCard
-              key={product.name}
-              product={product}
-              phone={config.contact.phone}
-              phoneDisplay={config.contact.phoneDisplay}
-            />
+          {config.products.map((product, i) => (
+            <Reveal key={product.name} delay={(i % 4) * 80} className="h-full">
+              <ProductCard
+                product={product}
+                phone={config.contact.phone}
+                phoneDisplay={config.contact.phoneDisplay}
+              />
+            </Reveal>
           ))}
         </div>
         <p className="mt-10 rounded-xl bg-secondary-light px-6 py-5 text-center text-lg">

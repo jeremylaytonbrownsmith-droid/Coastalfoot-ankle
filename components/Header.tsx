@@ -39,7 +39,7 @@ export default function Header({
     }`;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-secondary-light bg-card shadow-sm">
+    <header className="sticky top-0 z-40 border-b border-secondary-light bg-card/95 shadow-sm backdrop-blur-sm">
       {/* Slim reassurance bar — tells patients the phone is always answered */}
       <div className="bg-primary-dark px-4 py-2 text-center text-white">
         <a href={`tel:${phone}`} className="text-base font-medium no-underline sm:text-lg">

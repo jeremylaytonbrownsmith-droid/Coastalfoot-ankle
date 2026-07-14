@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getSiteConfig } from "@/lib/site-config";
 import TeamPhoto from "@/components/TeamPhoto";
 import CTASection from "@/components/CTASection";
+import Reveal from "@/components/Reveal";
 import type { Doctor } from "@/lib/site-config";
 
 const config = getSiteConfig();
@@ -66,7 +67,9 @@ export default function TeamPage() {
         <h2 className="text-3xl">Our doctors</h2>
         <div className="mt-8 space-y-8">
           {doctors.map((doctor) => (
-            <TeamMemberCard key={doctor.name + doctor.photo} member={doctor} />
+            <Reveal key={doctor.name + doctor.photo}>
+              <TeamMemberCard member={doctor} />
+            </Reveal>
           ))}
         </div>
 
@@ -75,7 +78,9 @@ export default function TeamPage() {
             <h2 className="mt-16 text-3xl">Supporting medical professionals</h2>
             <div className="mt-8 space-y-8">
               {support.map((member) => (
-                <TeamMemberCard key={member.name + member.photo} member={member} />
+                <Reveal key={member.name + member.photo}>
+                  <TeamMemberCard member={member} />
+                </Reveal>
               ))}
             </div>
           </>

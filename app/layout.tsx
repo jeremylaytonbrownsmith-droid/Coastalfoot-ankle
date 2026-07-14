@@ -66,6 +66,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <style dangerouslySetInnerHTML={{ __html: cssVars }} />
+        <noscript>
+          {/* Scroll-reveal animations require JS — show everything without it. */}
+          <style>{`.reveal{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData()) }}

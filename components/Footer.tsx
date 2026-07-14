@@ -6,7 +6,8 @@ export default function Footer() {
   const { contact } = config;
 
   return (
-    <footer className="border-t border-secondary-light bg-cream">
+    <footer className="bg-cream">
+      <div aria-hidden="true" className="h-1 bg-gradient-to-r from-secondary via-primary to-secondary" />
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3">
         <div>
           <p className="font-serif text-2xl font-bold">{config.practiceName}</p>

@@ -1,13 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 72" width="268" height="72" role="img" aria-label="Coastal Foot and Ankle Center logo">
   <!--
     PLACEHOLDER LOGO recreated from the provided photo (mauve wordmark,
-    sage swoosh behind a foot icon, warm gray subtext). Replace this file
+    sage swoosh behind a footprint, warm gray subtext). Replace this file
     with the real vector logo when it arrives — keep the same filename and
     nothing else needs to change (or update logo.src in the site config).
   -->
-  <g transform="translate(6,10)">
-    <path d="M2 40 C 10 18, 40 14, 52 26 C 44 30, 16 34, 10 44 Z" fill="#96AC9F" opacity="0.85"/>
-    <path d="M30 8 c 5.5 0 8.5 4.2 8.5 9.5 0 4.5 -1.8 6.8 -1.8 10.8 0 3.2 1 5 -0.4 7.4 -1.5 2.6 -5.8 2.6 -7.4 0 -1.4 -2.4 -0.7 -4.4 -0.7 -7.4 0 -4.5 -4.7 -6 -4.7 -11.3 C 23.5 12 25.8 8 30 8 Z" fill="#8B7D95"/>
+  <g transform="translate(8,8)">
+    <!-- sage swoosh -->
+    <path d="M0 44 C 12 20, 42 12, 58 24 C 60 26, 60 28, 57 28 C 40 24, 16 30, 6 47 C 3 51, -2 49, 0 44 Z" fill="#96AC9F"/>
+    <!-- mauve footprint -->
+    <g fill="#8B7D95">
+      <path d="M28 10 c 6 0 9.5 4.5 9 10.5 -0.4 4.6 -3 7 -5 10.5 -1.6 2.8 -1.6 5.4 -3.4 5.4 -1.8 0 -1.9 -2.6 -3.5 -5.4 -2 -3.5 -4.5 -5.9 -4.9 -10.5 C 19.7 14.5 22 10 28 10 Z"/>
+      <ellipse cx="26.4" cy="44" rx="4.6" ry="5.6"/>
+      <ellipse cx="17.8" cy="7.2" rx="2.5" ry="3.1"/>
+      <ellipse cx="24.2" cy="4.2" rx="2.7" ry="3.4"/>
+      <ellipse cx="31.4" cy="3.8" rx="2.6" ry="3.2"/>
+      <ellipse cx="38" cy="6" rx="2.3" ry="2.9"/>
+      <ellipse cx="43.4" cy="9.8" rx="2" ry="2.5"/>
+    </g>
   </g>
   <text x="72" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="bold" letter-spacing="3" fill="#8B7D95">COASTAL</text>
   <text x="73" y="56" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" letter-spacing="2.2" fill="#5A5A5A">FOOT &amp; ANKLE CENTER</text>

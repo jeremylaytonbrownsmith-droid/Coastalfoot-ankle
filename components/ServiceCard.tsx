@@ -19,14 +19,17 @@ export default function ServiceCard({ service }: { service: Service }) {
   );
 
   const cardClasses =
-    "block rounded-xl border border-secondary-light bg-card p-6 shadow-sm transition-shadow";
+    "block rounded-xl border border-secondary-light bg-card p-6 shadow-sm transition-all duration-300";
 
   if (service.href) {
     return (
-      <Link href={service.href} className={`${cardClasses} no-underline hover:shadow-md hover:border-secondary`}>
+      <Link
+        href={service.href}
+        className={`${cardClasses} no-underline hover:-translate-y-1 hover:border-secondary hover:shadow-lg`}
+      >
         {body}
       </Link>
     );
   }
-  return <div className={cardClasses}>{body}</div>;
+  return <div className={`${cardClasses} hover:-translate-y-1 hover:shadow-md`}>{body}</div>;
 }
