@@ -8,8 +8,11 @@ export default function ServiceCard({ service }: { service: Service }) {
       <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-secondary-light text-primary-darker">
         <ServiceIcon name={service.icon} className="h-8 w-8" />
       </span>
-      <h3 className="mt-4 text-2xl">{service.title}</h3>
-      <p className="mt-2 text-muted">{service.description}</p>
+      {/* min-h keeps descriptions starting at the same point across a row
+          even when one card's title wraps to a second line and another's
+          doesn't. */}
+      <h3 className="mt-4 min-h-16 text-2xl">{service.title}</h3>
+      <p className="mt-2 grow text-muted">{service.description}</p>
       {service.href && (
         <span className="mt-4 inline-block text-lg font-semibold text-primary-darker underline underline-offset-4">
           Learn more →
@@ -18,8 +21,12 @@ export default function ServiceCard({ service }: { service: Service }) {
     </>
   );
 
+  // flex + h-full fills the row height Reveal's wrapper already stretches
+  // to (CSS grid default); without it, each card's border only wrapped its
+  // own content, so shorter cards' borders ended above their taller
+  // siblings' in the same row.
   const cardClasses =
-    "block rounded-xl border border-secondary-light bg-card p-6 shadow-sm transition-all duration-300";
+    "flex h-full flex-col rounded-xl border border-secondary-light bg-card p-6 shadow-sm transition-all duration-300";
 
   if (service.href) {
     return (
