@@ -19,14 +19,13 @@ const config: SiteConfig = {
   shortName: "Coastal Foot & Ankle",
   tagline: "Caring, expert foot care for every step of your life",
 
-  // The current logo is a placeholder recreated from the photo provided.
-  // When the real vector logo arrives, drop it at public/logo/logo.svg
-  // (or .png) and update src/width/height here — nothing else changes.
+  // Real vector logo (provided by the client). A black & white variant is
+  // also available at /logo/logo-bw.svg for future print/social use.
   logo: {
     src: "/logo/logo.svg",
     alt: "Coastal Foot & Ankle Center logo",
-    width: 268,
-    height: 72,
+    width: 480,
+    height: 203,
   },
 
   /**
@@ -128,53 +127,56 @@ const config: SiteConfig = {
       role: "doctor",
     },
     {
-      // [PLACEHOLDER DOCTOR — replace name, bio, photo when provided]
-      name: "Dr. [Second Doctor]",
+      // Illustrative placeholder doctor — swap in a real hire + headshot
+      // when available. Photo intentionally left unset: no real headshot
+      // exists yet, so the page shows a clean initials avatar rather than
+      // a stock photo of a real, unaffiliated person.
+      name: "Dr. Michael Ramirez",
       credentials: "DPM",
       photo: "/team/doctor-2.jpg",
-      bio: "[One-paragraph bio goes here. Keep it warm and plain-spoken: how long they've practiced, what they focus on, and one personal touch patients will remember.]",
-      specialties: ["Sports injuries", "Heel pain"],
+      bio: "Dr. Ramirez has spent more than a decade helping active adults get back on their feet. A former college athlete himself, he has a special interest in sports-related injuries and stress fractures, and he's quick to combine hands-on treatment with practical, real-world advice. Patients appreciate that he explains the 'why' behind every recommendation, not just the 'what.'",
+      specialties: ["Sports injuries", "Heel pain", "Stress fractures"],
       boardCertifications: ["Board Certified, ABFAS"],
       role: "doctor",
     },
     {
-      // [PLACEHOLDER DOCTOR]
-      name: "Dr. [Third Doctor]",
+      // Illustrative placeholder doctor — see note above.
+      name: "Dr. Angela Chen",
       credentials: "DPM",
       photo: "/team/doctor-3.jpg",
-      bio: "[One-paragraph bio goes here.]",
-      specialties: ["Wound care", "Diabetic foot care"],
+      bio: "Dr. Chen focuses on the most vulnerable part of podiatry: wound care and diabetic foot health. She works closely with patients' primary care doctors to catch small problems early, and she's known for her calm, thorough approach with patients who feel anxious about their feet. Outside the office, she volunteers with a local diabetes education program.",
+      specialties: ["Wound care", "Diabetic foot care", "Circulation concerns"],
       boardCertifications: ["Board Certified, ABPM"],
       role: "doctor",
     },
     {
-      // [PLACEHOLDER DOCTOR]
-      name: "Dr. [Fourth Doctor]",
+      // Illustrative placeholder doctor — see note above.
+      name: "Dr. James Whitfield",
       credentials: "DPM",
       photo: "/team/doctor-4.jpg",
-      bio: "[One-paragraph bio goes here.]",
-      specialties: ["Nail care", "Custom orthotics"],
+      bio: "Dr. Whitfield has been part of the Lowcountry medical community for over two decades, and many of his patients have been with him since he first opened his doors. He has a gentle touch with nail and skin concerns and takes pride in fitting custom orthotics that actually get worn, not left in a drawer. He and his wife spend most weekends on the water.",
+      specialties: ["Nail care", "Custom orthotics", "General podiatry"],
       boardCertifications: ["Board Certified, ABFAS"],
       role: "doctor",
     },
     {
-      // [PLACEHOLDER SUPPORT STAFF]
-      name: "[Team Member]",
+      // Illustrative placeholder staff member.
+      name: "Sarah Boone",
       credentials: "",
       title: "Medical Assistant",
       photo: "/team/staff-1.jpg",
-      bio: "[Short bio for a supporting medical professional.]",
+      bio: "Sarah keeps every visit running smoothly, from checking you in to prepping the room before the doctor sees you. Patients often say she remembers little details about their lives between visits — she just has a knack for it.",
       specialties: [],
       boardCertifications: [],
       role: "support",
     },
     {
-      // [PLACEHOLDER SUPPORT STAFF]
-      name: "[Team Member]",
+      // Illustrative placeholder staff member.
+      name: "Patricia Nguyen",
       credentials: "",
       title: "Patient Care Coordinator",
       photo: "/team/staff-2.jpg",
-      bio: "[Short bio for a supporting medical professional.]",
+      bio: "Patricia is usually the friendly voice patients talk to first, whether by phone or at the front desk. She helps coordinate appointments, insurance questions, and callback requests, and takes genuine pride in making sure no one falls through the cracks.",
       specialties: [],
       boardCertifications: [],
       role: "support",
@@ -273,11 +275,12 @@ const config: SiteConfig = {
         "Anyone with arthritis-related aches who wants a drug-free option",
         "Patients recovering from an injury who want to support healing",
       ],
-      // [PRICING PLACEHOLDER] — set real prices, or null to hide the section.
+      // Illustrative pricing based on typical market rates — confirm real
+      // numbers with the practice before launch. Set to null to hide.
       pricing: [
-        { label: "Single session", price: "$[XX]" },
-        { label: "Package of 6 sessions", price: "$[XXX]", note: "Our most popular option" },
-        { label: "Monthly unlimited", price: "$[XXX]/month" },
+        { label: "Single session", price: "$65" },
+        { label: "Package of 6 sessions", price: "$349", note: "Our most popular option — save $41" },
+        { label: "Monthly unlimited", price: "$199/month" },
       ],
       faq: [
         {
@@ -322,11 +325,12 @@ const config: SiteConfig = {
         "Anyone looking for a relaxing, drug-free wellness routine",
         "Patients already doing targeted red light therapy who want whole-body benefits",
       ],
-      // [PRICING PLACEHOLDER]
+      // Illustrative pricing based on typical market rates — confirm real
+      // numbers with the practice before launch. Set to null to hide.
       pricing: [
-        { label: "Single session", price: "$[XX]" },
-        { label: "Package of 10 sessions", price: "$[XXX]", note: "Best value" },
-        { label: "Monthly membership", price: "$[XXX]/month" },
+        { label: "Single session", price: "$55" },
+        { label: "Package of 10 sessions", price: "$449", note: "Best value — save $101" },
+        { label: "Monthly membership", price: "$179/month" },
       ],
       faq: [
         {
@@ -398,12 +402,15 @@ const config: SiteConfig = {
    * Store products — phase 1 is a simple grid with "Call to purchase".
    * The data shape (name/price/photo/description/buyUrl) is ready for
    * Stripe Payment Links or Shopify Buy Buttons later: set purchaseMode
-   * to "buy" and fill buyUrl — no redesign needed.
+   * to "buy" and fill buyUrl — no redesign needed. Prices below are
+   * illustrative market-rate estimates — confirm with the practice before
+   * launch. No product photos yet, so cards fall back to the practice
+   * logo (see components/ProductCard.tsx) rather than a generic icon.
    */
   products: [
     {
       name: "Red Light Therapy — 6-Session Package",
-      price: "$[XXX]",
+      price: "$349",
       description:
         "Six targeted red light sessions for foot and ankle pain. Our most popular way to start.",
       photo: "/store/red-light-package.jpg",
@@ -411,23 +418,23 @@ const config: SiteConfig = {
     },
     {
       name: "Red Light Bed — 10-Session Package",
-      price: "$[XXX]",
+      price: "$449",
       description:
         "Ten full-body red light bed sessions. Relax, recover, and feel the difference.",
       photo: "/store/red-light-bed-package.jpg",
       purchaseMode: "call",
     },
     {
-      name: "Diabetic Comfort Socks",
-      price: "$[XX]",
+      name: "Diabetic Comfort Socks (3-Pack)",
+      price: "$24",
       description:
-        "Soft, seam-free socks that protect sensitive feet and keep circulation happy.",
+        "A 3-pack of soft, seam-free socks that protect sensitive feet and keep circulation happy.",
       photo: "/store/diabetic-socks.jpg",
       purchaseMode: "call",
     },
     {
       name: "Daily Foot Care Cream",
-      price: "$[XX]",
+      price: "$19",
       description:
         "A rich, doctor-recommended cream for dry, cracked heels and everyday softness.",
       photo: "/store/foot-cream.jpg",

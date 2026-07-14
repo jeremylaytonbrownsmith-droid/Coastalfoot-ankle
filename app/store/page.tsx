@@ -33,6 +33,7 @@ export default function StorePage() {
                 product={product}
                 phone={config.contact.phone}
                 phoneDisplay={config.contact.phoneDisplay}
+                logo={{ src: config.logo.src, alt: config.logo.alt }}
               />
             </Reveal>
           ))}

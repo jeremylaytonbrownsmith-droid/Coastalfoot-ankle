@@ -17,10 +17,13 @@ export default function ProductCard({
   product,
   phone,
   phoneDisplay,
+  logo,
 }: {
   product: Product;
   phone?: string;
   phoneDisplay?: string;
+  /** Falls back to the practice logo (not a generic icon) when no product photo exists yet. */
+  logo?: { src: string; alt: string };
 }) {
   const [imageFailed, setImageFailed] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -37,9 +40,15 @@ export default function ProductCard({
       {imageFailed ? (
         <div
           aria-hidden="true"
-          className="flex aspect-square w-full items-center justify-center rounded-lg bg-cream text-secondary"
+          className="flex aspect-square w-full items-center justify-center rounded-lg bg-gradient-to-br from-cream to-secondary-light p-8"
         >
-          <ServiceIcon name="foot" className="h-16 w-16" />
+          {logo ? (
+            <div className="relative h-full w-full">
+              <Image src={logo.src} alt="" fill unoptimized className="object-contain" />
+            </div>
+          ) : (
+            <ServiceIcon name="foot" className="h-16 w-16 text-secondary" />
+          )}
         </div>
       ) : (
         <div className="relative aspect-square w-full overflow-hidden rounded-lg">
