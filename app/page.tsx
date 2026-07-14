@@ -11,14 +11,13 @@ import Reveal from "@/components/Reveal";
 import Stars from "@/components/Stars";
 
 /**
- * Floating rating card — the one piece of proof-of-trust every visitor
- * sees before they've scrolled at all. Positioned to overlap the seam
- * between the text column and the hero photo on desktop so it reads as a
- * physical object sitting on top of the page, not another line of text.
+ * Rating card — the one piece of proof-of-trust every visitor sees before
+ * they've scrolled at all. A slight tilt and a real shadow make it read as
+ * a physical object sitting on top of the page, not another line of text.
  */
 function HeroTrustBadge({ rating, count, years }: { rating: number; count: string; years: string }) {
   return (
-    <div className="flex items-center gap-4 rounded-2xl border border-secondary-light bg-card px-5 py-4 shadow-xl shadow-black/10">
+    <div className="flex -rotate-2 items-center gap-4 rounded-2xl border border-secondary-light bg-card px-5 py-4 shadow-xl shadow-black/15">
       <div className="flex shrink-0 flex-col items-center gap-1 border-r border-secondary-light pr-4">
         <span className="text-2xl font-bold leading-none text-primary-darker">{rating}</span>
         <Stars rating={rating} className="h-4 w-4" />
@@ -31,11 +30,12 @@ function HeroTrustBadge({ rating, count, years }: { rating: number; count: strin
   );
 }
 
-/** Soft, brand-colored glow behind the hero text — decoration only. */
+/** Layered brand-colored glow behind the hero text — decoration only. */
 function HeroBackdrop() {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
       <div className="absolute -left-32 -top-40 h-[28rem] w-[28rem] rounded-full bg-secondary-light opacity-60 blur-3xl" />
+      <div className="absolute left-16 top-24 h-64 w-64 rounded-full bg-primary opacity-[0.08] blur-3xl" />
     </div>
   );
 }
@@ -72,7 +72,7 @@ export default function HomePage() {
         <HeroPhotoPanel src={config.heroImage.src} alt={config.heroImage.alt} />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
           <div className="relative lg:max-w-xl">
-            <span className="animate-fade-up inline-flex items-center rounded-full border border-secondary bg-card/80 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide text-primary-darker shadow-sm">
+            <span className="animate-fade-up inline-flex items-center rounded-md bg-primary-dark px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-white">
               {config.practiceName}
             </span>
             <h1 className="animate-fade-up mt-4 text-4xl [animation-delay:80ms] sm:text-5xl lg:text-[3.4rem]">
@@ -87,10 +87,7 @@ export default function HomePage() {
               <AppointmentButton />
               <PhoneButton variant="outline" />
             </div>
-            <p className="animate-fade-up mt-5 text-lg text-muted [animation-delay:320ms]">
-              {config.aiReceptionist.blurb}
-            </p>
-            <div className="animate-fade-up mt-8 inline-block [animation-delay:400ms] lg:absolute lg:-right-6 lg:top-full lg:z-10 lg:mt-5 lg:translate-x-1/2">
+            <div className="animate-fade-up mt-10 inline-block [animation-delay:320ms]">
               <HeroTrustBadge
                 rating={config.googleReviews.rating}
                 count={config.googleReviews.count}
