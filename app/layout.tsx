@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import { getSiteConfig } from "@/lib/site-config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GlobalScrollReset from "@/components/GlobalScrollReset";
 import "./globals.css";
 
 const config = getSiteConfig();
@@ -98,6 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="flex min-h-screen flex-col">
+        <GlobalScrollReset />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-primary-dark focus:px-6 focus:py-3 focus:text-lg focus:font-semibold focus:text-white"
