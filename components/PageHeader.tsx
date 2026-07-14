@@ -1,9 +1,10 @@
 /**
  * Shared header band for every page except home (which has its own full
- * hero). Matches the home hero's gradient + soft glow treatment instead of
- * the flat, plain cream block these pages used to have. Pages keep full
- * control of their own title/copy/buttons via children — this is just the
- * shell.
+ * hero). The gradient runs FROM the sage tone (not a barely-there hint of
+ * it) so it reads as a distinct designed banner, not the same flat cream
+ * block repeated on every page — plus a brand-colored top accent rule for
+ * a clear visual signature. Pages keep full control of their own title/
+ * copy/buttons via children — this is just the shell.
  */
 export default function PageHeader({
   children,
@@ -13,10 +14,11 @@ export default function PageHeader({
   align?: "left" | "center";
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-cream via-cream to-secondary-light">
+    <section className="relative overflow-hidden bg-gradient-to-br from-secondary-light via-cream to-cream">
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-secondary via-primary to-secondary" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -right-24 -top-32 h-72 w-72 rounded-full bg-secondary-light opacity-60 blur-3xl" />
-        <div className="absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-primary opacity-[0.07] blur-3xl" />
+        <div className="absolute -right-16 -top-24 h-80 w-80 rounded-full bg-primary opacity-[0.1] blur-3xl" />
+        <div className="absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-secondary opacity-25 blur-3xl" />
       </div>
       <div
         className={`relative mx-auto max-w-4xl px-4 py-14 sm:px-6 ${align === "center" ? "text-center" : ""}`}
