@@ -47,18 +47,21 @@ export default function Header({
           it real depth rather than reading as a single flat color block. */}
       <div className="relative overflow-hidden bg-gradient-to-r from-primary-darker via-primary-dark to-primary-darker px-4 py-2 text-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-6 gap-y-1 text-center">
-          <span className="hidden items-center gap-1.5 text-sm font-medium text-white/90 sm:inline-flex">
+          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-white/90">
             <Stars rating={googleReviews.rating} className="h-4 w-4" />
             {googleReviews.rating} ({trust.googleReviewCount})
           </span>
-          <a href={`tel:${contact.phone}`} className="inline-flex items-center gap-1.5 text-base font-medium no-underline sm:text-lg">
-            <ServiceIcon name="phone" className="hidden h-4 w-4 sm:inline" />
+          {/* Hidden below sm: the mobile nav row already has a dedicated, larger
+              tap-to-call button — repeating the number here too would put two
+              call affordances back to back for the same action. */}
+          <a href={`tel:${contact.phone}`} className="hidden items-center gap-1.5 text-lg font-medium no-underline sm:inline-flex">
+            <ServiceIcon name="phone" className="h-4 w-4" />
             Call:{" "}
             <span className="font-bold underline underline-offset-4">{phoneDisplay}</span>
           </a>
           <a
             href={`mailto:${contact.email}`}
-            className="hidden items-center gap-1.5 text-sm font-medium text-white/90 no-underline underline-offset-4 hover:underline sm:inline-flex"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-white/90 no-underline underline-offset-4 hover:underline"
           >
             <ServiceIcon name="mail" className="h-4 w-4" />
             {contact.email}
