@@ -51,15 +51,7 @@ export default function HomePage() {
         <HeroBackdrop />
         <HeroPhotoPanel src={config.heroImage.src} alt={config.heroImage.alt} />
 
-        {/* Full-bleed photo band for mobile/tablet — edge to edge like the
-            desktop panel, with a bottom fade instead of a left one, so it
-            reads as part of the page rather than a separate floating card. */}
-        <div className="relative h-64 w-full sm:h-80 lg:hidden">
-          <Image src={config.heroImage.src} alt={config.heroImage.alt} fill priority sizes="100vw" className="object-cover" />
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-cream to-transparent" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 pb-0 pt-16 sm:px-6 lg:py-24">
           <div className="relative lg:max-w-xl">
             <span className="animate-fade-up inline-flex items-center rounded-md bg-primary-dark px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-white">
               {config.practiceName}
@@ -81,6 +73,14 @@ export default function HomePage() {
               <PhoneButton variant="outline" />
             </div>
           </div>
+        </div>
+
+        {/* Full-bleed photo band for mobile/tablet — edge to edge like the
+            desktop panel. The text above bleeds down into it via a top fade,
+            instead of the photo fading into the text below. */}
+        <div className="relative mt-10 h-64 w-full sm:h-80 lg:hidden">
+          <Image src={config.heroImage.src} alt={config.heroImage.alt} fill sizes="100vw" className="object-cover" />
+          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-cream to-transparent" />
         </div>
       </section>
 
