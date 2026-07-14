@@ -59,9 +59,12 @@ export default function HomePage() {
             <h1 className="animate-fade-up mt-4 text-4xl [animation-delay:80ms] sm:text-5xl lg:text-[3.4rem]">
               Expert foot &amp; ankle care
             </h1>
-            <p className="animate-fade-up mt-3 flex items-start gap-2 text-xl font-bold text-primary-darker [animation-delay:120ms] sm:text-2xl">
-              <ServiceIcon name="map" className="mt-1 h-5 w-5 shrink-0 sm:mt-1.5" />
-              Serving {config.contact.serviceArea}
+            <div className="animate-fade-up mt-4 flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-primary-darker [animation-delay:120ms]">
+              <ServiceIcon name="map" className="h-4 w-4 shrink-0" />
+              Now serving
+            </div>
+            <p className="mt-1 text-xl font-bold text-primary-darker sm:text-2xl">
+              {config.contact.serviceArea}
             </p>
             <span aria-hidden="true" className="animate-fade-up mt-5 block h-1.5 w-20 rounded-full bg-secondary [animation-delay:140ms]" />
             <p className="animate-fade-up mt-6 text-xl text-muted [animation-delay:160ms] sm:text-2xl">
