@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 72" width="268" height="72" role="img" aria-label="Coastal Foot and Ankle Center logo">
+  <!--
+    PLACEHOLDER LOGO recreated from the provided photo (mauve wordmark,
+    sage swoosh behind a foot icon, warm gray subtext). Replace this file
+    with the real vector logo when it arrives — keep the same filename and
+    nothing else needs to change (or update logo.src in the site config).
+  -->
+  <g transform="translate(6,10)">
+    <path d="M2 40 C 10 18, 40 14, 52 26 C 44 30, 16 34, 10 44 Z" fill="#96AC9F" opacity="0.85"/>
+    <path d="M30 8 c 5.5 0 8.5 4.2 8.5 9.5 0 4.5 -1.8 6.8 -1.8 10.8 0 3.2 1 5 -0.4 7.4 -1.5 2.6 -5.8 2.6 -7.4 0 -1.4 -2.4 -0.7 -4.4 -0.7 -7.4 0 -4.5 -4.7 -6 -4.7 -11.3 C 23.5 12 25.8 8 30 8 Z" fill="#8B7D95"/>
+  </g>
+  <text x="72" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="bold" letter-spacing="3" fill="#8B7D95">COASTAL</text>
+  <text x="73" y="56" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" letter-spacing="2.2" fill="#5A5A5A">FOOT &amp; ANKLE CENTER</text>
+</svg>
