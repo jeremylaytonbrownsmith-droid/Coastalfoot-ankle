@@ -21,17 +21,57 @@ function HeroBackdrop() {
 }
 
 /**
- * Full-bleed hero photo panel (desktop only) — reaches the actual browser
+ * Photo (always) plus an optional looping video on top of it. The photo
+ * stays in the DOM as the poster — visible immediately while the video
+ * loads, and permanently in its place for anyone with prefers-reduced-
+ * motion set, via the motion-reduce:hidden on the <video> itself (pure
+ * CSS, no JS needed to detect the preference).
+ */
+function HeroMedia({
+  src,
+  alt,
+  video,
+  sizes,
+  priority,
+}: {
+  src: string;
+  alt: string;
+  video: string | null;
+  sizes: string;
+  priority?: boolean;
+}) {
+  return (
+    <>
+      <Image src={src} alt={alt} fill priority={priority} sizes={sizes} className="object-cover" />
+      {video && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={src}
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+        >
+          <source src={video} type="video/mp4" />
+        </video>
+      )}
+    </>
+  );
+}
+
+/**
+ * Full-bleed hero media panel (desktop only) — reaches the actual browser
  * edge, not just the content container, which is what makes a split hero
  * read as premium rather than a floating card. A soft gradient fades the
- * photo's left edge into the page background so the seam feels intentional
+ * media's left edge into the page background so the seam feels intentional
  * even where it passes near/behind the headline text.
  */
-function HeroPhotoPanel({ src, alt }: { src: string; alt: string }) {
+function HeroPhotoPanel({ src, alt, video }: { src: string; alt: string; video: string | null }) {
   return (
     <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[52%] lg:block">
       <div className="relative h-full w-full">
-        <Image src={src} alt={alt} fill priority sizes="52vw" className="object-cover" />
+        <HeroMedia src={src} alt={alt} video={video} sizes="52vw" priority />
         <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-cream to-transparent" />
       </div>
     </div>
@@ -49,7 +89,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-cream via-cream to-secondary-light">
         <HeroBackdrop />
-        <HeroPhotoPanel src={config.heroImage.src} alt={config.heroImage.alt} />
+        <HeroPhotoPanel src={config.heroImage.src} alt={config.heroImage.alt} video={config.heroVideo} />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-0 pt-16 sm:px-6 lg:py-24">
           <div className="relative lg:max-w-xl">
@@ -82,7 +122,7 @@ export default function HomePage() {
             desktop panel. The text above bleeds down into it via a top fade,
             instead of the photo fading into the text below. */}
         <div className="relative mt-10 h-64 w-full sm:h-80 lg:hidden">
-          <Image src={config.heroImage.src} alt={config.heroImage.alt} fill sizes="100vw" className="object-cover" />
+          <HeroMedia src={config.heroImage.src} alt={config.heroImage.alt} video={config.heroVideo} sizes="100vw" />
           <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-cream to-transparent" />
         </div>
       </section>

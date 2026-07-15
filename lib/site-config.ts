@@ -126,6 +126,14 @@ export interface SiteConfig {
     src: string;
     alt: string;
   };
+  /**
+   * Optional looping background video for the homepage hero, shown in place
+   * of heroImage. heroImage still renders underneath as the poster frame —
+   * for slow connections before the video loads, and permanently in place
+   * of the video for anyone with prefers-reduced-motion set. Null keeps the
+   * hero as a plain static photo.
+   */
+  heroVideo: string | null;
   colors: BrandColors;
   contact: {
     /** Digits only, for tel: links. */

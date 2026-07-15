@@ -32,6 +32,7 @@ const config: SiteConfig = {
     src: "/hero/cover-photo.png",
     alt: "A bare foot in the sand next to a footprint drawn with sea glass and shells",
   },
+  heroVideo: "/hero/hero-loop.mp4",
 
   /**
    * Brand palette — sampled from the actual logo photo.
