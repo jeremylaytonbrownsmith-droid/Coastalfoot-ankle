@@ -192,12 +192,13 @@ export interface SiteConfig {
     note: string;
   };
   /**
-   * New-patient intake form so patients can fill it out before arriving.
-   * `url` points at an online fillable form (e.g. a JotForm) rather than a
-   * static PDF — easier for an older patient base than print-fill-scan.
-   * Set to null to hide the link if the practice doesn't have one yet.
+   * Patient paperwork, listed on /forms and (the first entry) surfaced as a
+   * shortcut on the Request Appointment page. Each `url` points at an online
+   * fillable form rather than a static PDF — easier for an older patient
+   * base than print-fill-scan. Empty array hides both the page's list and
+   * the Request Appointment shortcut.
    */
-  newPatientForm: { url: string; label: string } | null;
+  patientForms: { label: string; description: string; url: string }[];
   seo: {
     /** Production URL, no trailing slash. Used for sitemap + Open Graph. */
     siteUrl: string;

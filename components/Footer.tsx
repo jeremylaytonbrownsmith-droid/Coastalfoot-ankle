@@ -50,6 +50,9 @@ export default function Footer() {
             © {new Date().getFullYear()} {config.practiceName}. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link href="/forms" className="underline underline-offset-4 hover:text-primary-darker">
+              Patient Forms
+            </Link>
             <Link href="/insurance" className="underline underline-offset-4 hover:text-primary-darker">
               Insurance &amp; Accepted Plans
             </Link>

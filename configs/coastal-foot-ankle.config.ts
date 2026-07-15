@@ -501,10 +501,14 @@ const config: SiteConfig = {
       "Don't see your plan listed? Many plans we accept aren't shown here yet — call us and we'll confirm your coverage before your appointment.",
   },
 
-  newPatientForm: {
-    url: "https://web4u.forms-db.com/view.php?id=1732046",
-    label: "New Patient Registration Form",
-  },
+  patientForms: [
+    {
+      label: "New Patient Registration Form",
+      description:
+        "Fill this out before your first visit — no printing or scanning needed.",
+      url: "https://web4u.forms-db.com/view.php?id=1732046",
+    },
+  ],
 
   seo: {
     // [PLACEHOLDER] — set the real production domain before launch.

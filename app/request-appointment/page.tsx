@@ -114,7 +114,7 @@ export default async function RequestAppointmentPage({
           />
         </div>
 
-        {config.newPatientForm && (
+        {config.patientForms.length > 0 && (
           <div className="mt-10 flex flex-col items-start gap-3 rounded-xl border-2 border-secondary-light bg-cream px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-xl font-semibold">New patient?</p>
@@ -123,12 +123,12 @@ export default async function RequestAppointmentPage({
               </p>
             </div>
             <a
-              href={config.newPatientForm.url}
+              href={config.patientForms[0].url}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-[52px] shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light"
             >
-              Fill Out {config.newPatientForm.label}
+              Fill Out {config.patientForms[0].label}
             </a>
           </div>
         )}
