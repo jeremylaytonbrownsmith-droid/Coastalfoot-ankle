@@ -501,7 +501,7 @@ const config: SiteConfig = {
   },
 
   newPatientForm: {
-    url: "https://form.jotform.com/261945236243054",
+    url: "https://web4u.forms-db.com/view.php?id=1732046",
     label: "New Patient Registration Form",
   },
 
