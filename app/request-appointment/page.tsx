@@ -143,6 +143,18 @@ export default async function RequestAppointmentPage({
           <div className="mt-8">
             <FAQAccordion items={config.aiReceptionist.faq} />
           </div>
+          {config.aiReceptionist.website && (
+            <p className="mt-6 text-lg">
+              <a
+                href={config.aiReceptionist.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary-darker underline underline-offset-4"
+              >
+                Learn more about {config.aiReceptionist.name} →
+              </a>
+            </p>
+          )}
         </div>
       </section>
     </>

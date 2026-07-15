@@ -157,6 +157,8 @@ export interface SiteConfig {
     blurb: string;
     /** Short FAQ addressing "wait, am I talking to a robot?" — shown on the Request Appointment page. */
     faq: FaqItem[];
+    /** The vendor's own site, e.g. https://halohealth.app — set to null to hide the "learn more" link. */
+    website: string | null;
   };
   trust: {
     yearsExperience: string;

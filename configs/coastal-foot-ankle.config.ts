@@ -103,6 +103,7 @@ const config: SiteConfig = {
           "Yes. Halo only collects what's needed to schedule your visit — your name, phone number, and reason for the call. Please save any detailed medical information for your actual appointment.",
       },
     ],
+    website: "https://halohealth.app",
   },
 
   // Numbers shown in the trust bar on the home page. [PLACEHOLDERS]
