@@ -2,7 +2,7 @@ import {
   Footprints,
   Droplet,
   Scissors,
-  Activity,
+  Zap,
   Bone,
   Bandage,
   SportShoe,
@@ -25,7 +25,8 @@ import {
  * library (too niche), so a few of these are the closest clean,
  * professional match rather than a literal illustration:
  *   - Nail Concerns → Scissors (grooming/trimming)
- *   - Heel Pain → Activity (diagnosing/checking the cause)
+ *   - Heel Pain → Zap (sharp/sudden pain — an earlier pulse-line icon read
+ *     as a vitals monitor, not a foot symptom)
  *   - Bunions & Hammertoes → Bone (joint/toe deformity)
  *   - Ankle Sprains → Bandage (injury)
  */
@@ -33,7 +34,7 @@ const icons: Record<string, LucideIcon> = {
   foot: Footprints,
   droplet: Droplet,
   toenail: Scissors,
-  heel: Activity,
+  heel: Zap,
   toes: Bone,
   ankle: Bandage,
   insole: SportShoe,
