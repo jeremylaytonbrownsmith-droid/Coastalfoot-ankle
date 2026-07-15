@@ -74,9 +74,10 @@ export default async function RequestAppointmentPage({
             </p>
             <a
               href={`mailto:${contact.email}`}
-              className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center break-all rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light sm:mt-6"
+              className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center break-words rounded-lg border-2 border-primary-dark px-6 text-lg font-semibold text-primary-darker no-underline transition-colors hover:bg-secondary-light sm:mt-6"
             >
-              {contact.email}
+              {contact.email.split("@")[0]}@<wbr />
+              {contact.email.split("@")[1]}
             </a>
           </div>
 
