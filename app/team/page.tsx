@@ -37,7 +37,11 @@ function TeamMemberCard({ member }: { member: Doctor }) {
             ))}
           </ul>
         )}
-        <p className="mt-4 text-lg">{member.bio}</p>
+        <div className="mt-4 space-y-4 text-lg">
+          {member.bio.split("\n\n").map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
+          ))}
+        </div>
         {member.specialties.length > 0 && (
           <p className="mt-3 text-lg text-muted">
             <span className="font-semibold text-body">Focus areas:</span>{" "}
