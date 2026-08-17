@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getSiteConfig } from "@/lib/site-config";
 import ProductCard from "@/components/ProductCard";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
 import PageHeader from "@/components/PageHeader";
+import ServiceIcon from "@/components/ServiceIcon";
 
 const config = getSiteConfig();
 
@@ -35,6 +37,29 @@ export default function StorePage() {
         <p className="mt-10 rounded-xl bg-secondary-light px-6 py-5 text-center text-lg">
           Prefer to shop in person? Everything here is available at the office too.
         </p>
+
+        {config.ebmMedical.products.length > 0 && (
+          <Link
+            href="/store/ebm-medical"
+            className="mt-6 flex flex-col items-start gap-4 rounded-xl border-2 border-secondary-light bg-card p-6 no-underline transition-colors hover:border-secondary sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div className="flex items-start gap-4">
+              <span className="mt-1 shrink-0 text-primary-darker">
+                <ServiceIcon name="pill" className="h-8 w-8" />
+              </span>
+              <div>
+                <p className="text-xl font-semibold text-body">Looking for EBM Medical products?</p>
+                <p className="mt-1 text-lg text-muted">
+                  Prescription-only items like IontoPatch™ and the EB-N series — request info or a
+                  prescription from your doctor.
+                </p>
+              </div>
+            </div>
+            <span className="shrink-0 self-start whitespace-nowrap rounded-lg border-2 border-primary-dark px-6 py-3 text-lg font-semibold text-primary-darker sm:self-center">
+              View EBM Products →
+            </span>
+          </Link>
+        )}
       </section>
 
       <CTASection

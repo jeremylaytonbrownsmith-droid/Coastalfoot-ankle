@@ -108,6 +108,16 @@ export interface Product {
   buyUrl?: string;
 }
 
+export interface EBMProduct {
+  name: string;
+  /** Short marketing-level category, e.g. "Topical pain relief". */
+  category: string;
+  /** Plain-language, patient-facing summary — not clinical dosing/administration instructions; those live in the manufacturer's printed patient information sheet, handed out with an actual prescription. */
+  description: string;
+  /** Path under /public; missing files fall back to a placeholder graphic. */
+  photo: string;
+}
+
 export interface SiteConfig {
   /** Key used by the SITE_CONFIG env var and asset namespacing. */
   key: string;
@@ -189,6 +199,16 @@ export interface SiteConfig {
     reviewUrl: string | null;
   };
   products: Product[];
+  /**
+   * Prescription-only specialty products supplied through EBM Medical
+   * (ebmmedical.com) that the practice's doctors prescribe/order — distinct
+   * from the plain retail items in `products` above. Empty array hides the
+   * page and its footer/store links entirely, same pattern as patientForms.
+   */
+  ebmMedical: {
+    intro: string;
+    products: EBMProduct[];
+  };
   callbackForm: {
     reasonsForVisit: string[];
     confirmationMessage: string;

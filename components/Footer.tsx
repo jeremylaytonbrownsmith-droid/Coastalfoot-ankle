@@ -53,6 +53,11 @@ export default function Footer() {
             <Link href="/forms" className="underline underline-offset-4 hover:text-primary-darker">
               Patient Forms
             </Link>
+            {config.ebmMedical.products.length > 0 && (
+              <Link href="/store/ebm-medical" className="underline underline-offset-4 hover:text-primary-darker">
+                EBM Medical Products
+              </Link>
+            )}
             <Link href="/insurance" className="underline underline-offset-4 hover:text-primary-darker">
               Insurance &amp; Accepted Plans
             </Link>

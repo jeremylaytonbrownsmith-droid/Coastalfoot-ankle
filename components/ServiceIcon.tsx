@@ -14,6 +14,7 @@ import {
   Clock,
   Check,
   ClipboardList,
+  Pill,
   type LucideIcon,
 } from "lucide-react";
 
@@ -46,6 +47,7 @@ const icons: Record<string, LucideIcon> = {
   clock: Clock,
   check: Check,
   form: ClipboardList,
+  pill: Pill,
 };
 
 export default function ServiceIcon({

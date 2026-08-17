@@ -471,6 +471,29 @@ const config: SiteConfig = {
     },
   ],
 
+  // Real photos not on file yet for these two — swap in once available;
+  // ProductCard-style fallback graphics cover the gap until then.
+  ebmMedical: {
+    intro:
+      "Some patients benefit from specialty prescription products supplied through EBM Medical. These aren't over-the-counter items — a doctor here reviews your case and orders the specific product and strength that's right for you. Request more information below, or ask about one at your next visit.",
+    products: [
+      {
+        name: "IontoPatch™",
+        category: "Topical pain relief",
+        description:
+          "A wireless, wearable patch that delivers anti-inflammatory medication directly to a painful joint or soft-tissue area — no needles. Formulated and customized to your doctor's exact order.",
+        photo: "/store/ebm/iontopatch.jpg",
+      },
+      {
+        name: "EB-N3® / EB-N5® / EB-N6®",
+        category: "Nerve & vascular support",
+        description:
+          "A physician-prescribed medical food that helps manage the metabolic deficiencies behind nerve and blood vessel damage, including peripheral neuropathy — taken daily alongside your regular care.",
+        photo: "/store/ebm/eb-n-series.jpg",
+      },
+    ],
+  },
+
   callbackForm: {
     reasonsForVisit: [
       "General foot pain",
