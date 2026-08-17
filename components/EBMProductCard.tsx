@@ -69,6 +69,17 @@ export default function EBMProductCard({
       >
         Request Info or a Prescription
       </a>
+      {product.infoSheetUrl && (
+        <a
+          href={product.infoSheetUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center justify-center gap-2 text-lg font-semibold text-primary-darker underline underline-offset-4 hover:text-primary-dark"
+        >
+          <ServiceIcon name="form" className="h-5 w-5 shrink-0" />
+          View Patient Information (PDF)
+        </a>
+      )}
     </article>
   );
 }

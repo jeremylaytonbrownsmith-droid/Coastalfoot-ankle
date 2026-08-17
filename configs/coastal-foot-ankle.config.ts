@@ -483,6 +483,7 @@ const config: SiteConfig = {
         description:
           "A wireless, wearable patch that delivers anti-inflammatory medication directly to a painful joint or soft-tissue area — no needles. Formulated and customized to your doctor's exact order.",
         photo: "/store/ebm/iontopatch.jpg",
+        infoSheetUrl: "/ebm/iontopatch-patient-information.pdf",
       },
       {
         name: "EB-N3® / EB-N5® / EB-N6®",
@@ -490,6 +491,7 @@ const config: SiteConfig = {
         description:
           "A physician-prescribed medical food that helps manage the metabolic deficiencies behind nerve and blood vessel damage, including peripheral neuropathy — taken daily alongside your regular care.",
         photo: "/store/ebm/eb-n-series.jpg",
+        infoSheetUrl: "/ebm/eb-n-series-patient-information.pdf",
       },
     ],
   },

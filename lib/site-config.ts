@@ -116,6 +116,8 @@ export interface EBMProduct {
   description: string;
   /** Path under /public; missing files fall back to a placeholder graphic. */
   photo: string;
+  /** Path under /public to the manufacturer's official patient information PDF (full dosing/administration/side-effect detail). Optional — omit until the sheet is on hand. */
+  infoSheetUrl?: string;
 }
 
 export interface SiteConfig {
