@@ -317,6 +317,7 @@ const config: SiteConfig = {
         { label: "Extended — 6–12 weeks, 2x/week (24 sessions)", price: "$1,895", note: "$79 per session" },
         { label: "Extended — 6–12 weeks, 3x/week (36 sessions)", price: "$2,495", note: "$69 per session" },
         { label: "Neuropathy program", price: "$2,995", note: "Our advanced program for diabetic and peripheral neuropathy" },
+        { label: "Endometriosis program", price: "$2,995" },
       ],
       faq: [
         {
@@ -363,8 +364,11 @@ const config: SiteConfig = {
       ],
       // Real red light bed package pricing from the practice's RLT program.
       // Set to null to hide.
+      // [TIME-LIMITED] "10 sessions" reflects the Grand Opening Special
+      // (first 24 patients) — once that offer ends, update price back to
+      // $1,250 and drop the note.
       pricing: [
-        { label: "10 sessions", price: "$1,250" },
+        { label: "10 sessions", price: "$999", note: "Grand Opening Special for the first 24 patients — regularly $1,250" },
         { label: "20 sessions", price: "$1,699" },
         { label: "30 sessions", price: "$2,370" },
       ],
@@ -456,7 +460,7 @@ const config: SiteConfig = {
     },
     {
       name: "Red Light Bed — 10-Session Package",
-      price: "From $1,250",
+      price: "From $999", // [TIME-LIMITED] Grand Opening Special (first 24 patients) — update to "From $1,250" once the offer ends.
       description:
         "Ten full-body red light bed sessions. Relax, recover, and feel the difference. 20- and 30-session packages also available.",
       photo: "/store/red-light-bed-package.jpg",
