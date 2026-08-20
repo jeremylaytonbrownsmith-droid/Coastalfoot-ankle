@@ -302,12 +302,21 @@ const config: SiteConfig = {
         "Anyone with arthritis-related aches who wants a drug-free option",
         "Patients recovering from an injury who want to support healing",
       ],
-      // Illustrative pricing based on typical market rates — confirm real
-      // numbers with the practice before launch. Set to null to hide.
+      // Real Class IV laser therapy program pricing from the practice's
+      // Summus-based laser program. Set to null to hide.
       pricing: [
-        { label: "Single session", price: "$65" },
-        { label: "Package of 6 sessions", price: "$349", note: "Our most popular option — save $41" },
-        { label: "Monthly unlimited", price: "$199/month" },
+        {
+          label: "Initial evaluation",
+          price: "$150",
+          note: "Assessment, movement analysis, and a personalized care plan",
+        },
+        { label: "Jumpstart — 3 weeks, 2x/week (6 sessions)", price: "$595", note: "$99 per session" },
+        { label: "Jumpstart — 3 weeks, 3x/week (9 sessions)", price: "$849", note: "$94 per session" },
+        { label: "Core Recovery — 6 weeks, 2x/week (12 sessions)", price: "$1,095", note: "$91 per session" },
+        { label: "Core Recovery — 6 weeks, 3x/week (18 sessions)", price: "$1,495", note: "$83 per session" },
+        { label: "Extended — 6–12 weeks, 2x/week (24 sessions)", price: "$1,895", note: "$79 per session" },
+        { label: "Extended — 6–12 weeks, 3x/week (36 sessions)", price: "$2,495", note: "$69 per session" },
+        { label: "Neuropathy program", price: "$2,995", note: "Our advanced program for diabetic and peripheral neuropathy" },
       ],
       faq: [
         {
@@ -352,12 +361,12 @@ const config: SiteConfig = {
         "Anyone looking for a relaxing, drug-free wellness routine",
         "Patients already doing targeted red light therapy who want whole-body benefits",
       ],
-      // Illustrative pricing based on typical market rates — confirm real
-      // numbers with the practice before launch. Set to null to hide.
+      // Real red light bed package pricing from the practice's RLT program.
+      // Set to null to hide.
       pricing: [
-        { label: "Single session", price: "$55" },
-        { label: "Package of 10 sessions", price: "$449", note: "Best value — save $101" },
-        { label: "Monthly membership", price: "$179/month" },
+        { label: "10 sessions", price: "$1,250" },
+        { label: "20 sessions", price: "$1,699" },
+        { label: "30 sessions", price: "$2,370" },
       ],
       faq: [
         {
@@ -438,18 +447,18 @@ const config: SiteConfig = {
    */
   products: [
     {
-      name: "Red Light Therapy — 6-Session Package",
-      price: "$349",
+      name: "Class IV Laser Therapy — 3-Week Jumpstart",
+      price: "From $595",
       description:
-        "Six targeted red light sessions for foot and ankle pain. Our most popular way to start.",
+        "Targeted laser therapy for foot and ankle pain, 2x a week for 3 weeks (6 sessions). Longer programs and a neuropathy program are also available — ask us for full pricing.",
       photo: "/store/red-light-package.jpg",
       purchaseMode: "call",
     },
     {
       name: "Red Light Bed — 10-Session Package",
-      price: "$449",
+      price: "From $1,250",
       description:
-        "Ten full-body red light bed sessions. Relax, recover, and feel the difference.",
+        "Ten full-body red light bed sessions. Relax, recover, and feel the difference. 20- and 30-session packages also available.",
       photo: "/store/red-light-bed-package.jpg",
       purchaseMode: "call",
     },
