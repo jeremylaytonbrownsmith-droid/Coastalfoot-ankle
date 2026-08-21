@@ -38,7 +38,7 @@ export default function MobilePodiatryPage() {
       {/* Minimal logo-only strip — branding without bringing back a full
           nav header, which would defeat the point of this being a
           self-contained single page. */}
-      <div className="border-b border-secondary-light bg-card px-4 py-4 sm:px-6">
+      <div className="flex justify-center border-b border-secondary-light bg-card px-4 py-4 sm:px-6">
         <Image
           src={config.logo.src}
           alt={config.logo.alt}
