@@ -211,6 +211,24 @@ export interface SiteConfig {
     intro: string;
     products: EBMProduct[];
   };
+  /**
+   * Standalone /mobile page for house-call visits — a separate, single-page
+   * offering (own hero, own request form) rather than a normal service page,
+   * since it's meant to stand alone as a temporary primary landing point.
+   * Null hides the page/route's content usage entirely (page itself stays
+   * buildable either way, but nothing should link to it while this is null).
+   */
+  mobilePodiatry: {
+    heroTagline: string;
+    intro: string;
+    whatToExpect: string[];
+    eligibilityIntro: string;
+    eligibilityOptions: string[];
+    selfPayNote: string;
+    /** Must match a name in `doctors` — the page pulls that doctor's photo/credentials from there rather than duplicating them. */
+    doctorName: string;
+    doctorBlurb: string;
+  } | null;
   callbackForm: {
     reasonsForVisit: string[];
     confirmationMessage: string;

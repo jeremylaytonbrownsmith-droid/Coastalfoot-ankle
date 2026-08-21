@@ -509,6 +509,40 @@ const config: SiteConfig = {
     ],
   },
 
+  // [NEW — 2026] Coastal Mobile Podiatry: a standalone house-call offering
+  // at /mobile, meant to stand on its own (own hero, own request form)
+  // rather than live as a normal service page. Set to null to take the
+  // page's content offline once it's no longer needed.
+  mobilePodiatry: {
+    heroTagline: "Expert foot & ankle care, right at your door.",
+    intro:
+      "For patients who have a hard time getting to an office, Coastal Mobile Podiatry brings the same careful, unhurried exam and care you'd get in our office straight to your home.",
+    whatToExpect: [
+      "A full exam and hands-on treatment in the comfort of your own home",
+      "Routine foot and ankle care — nail and skin care, wound checks, diabetic foot exams, and more",
+      "No need to arrange transportation or a caregiver escort just to see the doctor",
+      "The same doctor, the same careful approach, just at your kitchen table instead of our office",
+    ],
+    eligibilityIntro:
+      "Medicare covers home visits only when a patient has a genuine medical reason they can't reasonably get to an office. Here are some common reasons that qualify:",
+    eligibilityOptions: [
+      "Difficulty walking or getting around safely",
+      "A history of falls",
+      "Nerve damage that makes walking unsafe (neuropathy)",
+      "Poor circulation in the legs or feet",
+      "Memory or cognitive concerns",
+      "Recent surgery limiting mobility",
+      "Use oxygen equipment",
+      "Need a walker or wheelchair, with no one available to help get to an office",
+      "Homebound, as documented by a doctor or home health agency",
+    ],
+    selfPayNote:
+      "None of these describe your situation? A home visit is still available to you — we'll go over simple self-pay pricing when we call you back.",
+    doctorName: "Dr. Lauren Thornberry",
+    doctorBlurb:
+      "A retired U.S. Navy officer turned podiatrist, Dr. Thornberry is bringing her same warm, take-the-time-to-listen approach straight to your door.",
+  },
+
   callbackForm: {
     reasonsForVisit: [
       "General foot pain",
