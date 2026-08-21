@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { getSiteConfig, type NavItem } from "@/lib/site-config";
+import { STANDALONE_ROUTES } from "@/lib/standalone-routes";
 import ServiceIcon from "@/components/ServiceIcon";
 import Stars from "@/components/Stars";
 
@@ -34,6 +35,10 @@ export default function Header({
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const { contact, googleReviews, trust } = getSiteConfig();
+
+  // Standalone pages (e.g. /mobile) are meant to be a self-contained single
+  // page with no way to navigate elsewhere on the site.
+  if (STANDALONE_ROUTES.includes(pathname)) return null;
 
   const linkClasses = (href: string) =>
     `whitespace-nowrap rounded-md px-3 py-2 text-lg font-medium no-underline transition-colors hover:bg-secondary-light hover:text-primary-darker ${

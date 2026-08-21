@@ -1,9 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { getSiteConfig } from "@/lib/site-config";
+import { STANDALONE_ROUTES } from "@/lib/standalone-routes";
 
 export default function Footer() {
   const config = getSiteConfig();
   const { contact } = config;
+  const pathname = usePathname();
+
+  // Standalone pages (e.g. /mobile) are meant to be a self-contained single
+  // page with no way to navigate elsewhere on the site.
+  if (STANDALONE_ROUTES.includes(pathname)) return null;
 
   return (
     <footer className="bg-cream">
