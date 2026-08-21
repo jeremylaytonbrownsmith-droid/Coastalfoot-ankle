@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getSiteConfig } from "@/lib/site-config";
 import { PhoneButton } from "@/components/Buttons";
 import TeamPhoto from "@/components/TeamPhoto";
@@ -35,7 +36,16 @@ export default function MobilePodiatryPage() {
   return (
     <>
       <PageHeader align="center">
-        <span className="inline-flex items-center gap-2 rounded-md bg-primary-dark px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-white">
+        <Image
+          src={config.logo.src}
+          alt={config.logo.alt}
+          width={config.logo.width}
+          height={config.logo.height}
+          priority
+          unoptimized
+          className="mx-auto h-16 w-auto object-contain sm:h-20"
+        />
+        <span className="mt-6 inline-flex items-center gap-2 rounded-md bg-primary-dark px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-white">
           <ServiceIcon name="foot" className="h-4 w-4" />
           House Calls
         </span>
