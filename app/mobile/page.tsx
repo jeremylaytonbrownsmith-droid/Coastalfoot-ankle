@@ -35,7 +35,10 @@ export default function MobilePodiatryPage() {
 
   return (
     <>
-      <PageHeader align="center">
+      {/* Minimal logo-only strip — branding without bringing back a full
+          nav header, which would defeat the point of this being a
+          self-contained single page. */}
+      <div className="border-b border-secondary-light bg-card px-4 py-4 sm:px-6">
         <Image
           src={config.logo.src}
           alt={config.logo.alt}
@@ -43,9 +46,12 @@ export default function MobilePodiatryPage() {
           height={config.logo.height}
           priority
           unoptimized
-          className="mx-auto h-16 w-auto object-contain sm:h-20"
+          className="h-10 w-auto object-contain"
         />
-        <span className="mt-6 inline-flex items-center gap-2 rounded-md bg-primary-dark px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-white">
+      </div>
+
+      <PageHeader align="center">
+        <span className="inline-flex items-center gap-2 rounded-md bg-primary-dark px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-white">
           <ServiceIcon name="foot" className="h-4 w-4" />
           House Calls
         </span>
