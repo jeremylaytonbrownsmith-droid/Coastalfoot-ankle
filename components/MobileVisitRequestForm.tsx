@@ -125,7 +125,7 @@ export default function MobileVisitRequestForm({ eligibilityOptions }: { eligibi
         <legend className={labelClasses}>
           Which of these describe your situation? <span className="font-normal text-muted">(optional — select any that apply)</span>
         </legend>
-        <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
+        <div className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
           {eligibilityOptions.map((option) => (
             <label
               key={option}

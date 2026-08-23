@@ -70,10 +70,10 @@ export default function MobilePodiatryPage() {
       </PageHeader>
 
       {/* What to expect */}
-      <section className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
+      <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:py-20">
         <Reveal>
-          <h2 className="text-3xl">What to expect</h2>
-          <ul className="mt-6 space-y-4">
+          <h2 className="text-3xl lg:text-4xl">What to expect</h2>
+          <ul className="mt-8 grid gap-x-10 gap-y-5 lg:grid-cols-2">
             {mobilePodiatry.whatToExpect.map((item) => (
               <li key={item} className="flex items-start gap-3 text-xl">
                 <span className="mt-1 shrink-0 text-primary-darker">
@@ -89,18 +89,18 @@ export default function MobilePodiatryPage() {
       {/* Meet the doctor */}
       {doctor && (
         <section className="bg-cream">
-          <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
+          <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:py-20">
             <Reveal>
-              <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
-                <div className="w-40 shrink-0">
+              <div className="flex flex-col items-center gap-8 text-center sm:flex-row sm:text-left lg:gap-12">
+                <div className="w-40 shrink-0 lg:w-56">
                   <TeamPhoto src={doctor.photo} name={doctor.name} />
                 </div>
                 <div>
-                  <h2 className="text-3xl">
+                  <h2 className="text-3xl lg:text-4xl">
                     Your doctor: {doctor.name}
                     {doctor.credentials && `, ${doctor.credentials}`}
                   </h2>
-                  <p className="mt-3 text-xl text-muted">{mobilePodiatry.doctorBlurb}</p>
+                  <p className="mt-3 text-xl text-muted lg:max-w-2xl">{mobilePodiatry.doctorBlurb}</p>
                 </div>
               </div>
             </Reveal>
@@ -109,11 +109,13 @@ export default function MobilePodiatryPage() {
       )}
 
       {/* Eligibility / Medicare vs self-pay */}
-      <section className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
+      <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:py-20">
         <Reveal>
-          <h2 className="text-3xl">Is a home visit right for you?</h2>
-          <p className="mt-4 text-xl text-muted">{mobilePodiatry.eligibilityIntro}</p>
-          <p className="mt-4 rounded-lg bg-secondary-light px-5 py-4 text-lg">{mobilePodiatry.selfPayNote}</p>
+          <h2 className="text-3xl lg:text-4xl">Is a home visit right for you?</h2>
+          <div className="mt-6 lg:grid lg:grid-cols-[1.2fr_1fr] lg:items-start lg:gap-10">
+            <p className="text-xl text-muted">{mobilePodiatry.eligibilityIntro}</p>
+            <p className="mt-4 rounded-lg bg-secondary-light px-5 py-4 text-lg lg:mt-0">{mobilePodiatry.selfPayNote}</p>
+          </div>
           <p className="mt-6 text-lg text-muted">
             Currently serving {contact.serviceArea}. Not sure if you&apos;re in range? Just ask — we&apos;ll
             let you know when we call.
@@ -123,8 +125,8 @@ export default function MobilePodiatryPage() {
 
       {/* Request form */}
       <section id="mobile-request-form" className="scroll-mt-24 bg-cream">
-        <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
-          <h2 className="text-3xl">Request a home visit</h2>
+        <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:py-20">
+          <h2 className="text-3xl lg:text-4xl">Request a home visit</h2>
           <p className="mt-3 text-xl text-muted">
             Fill out this short form and our team will call you back within one business day. Prefer to
             talk now? Call us at{" "}
